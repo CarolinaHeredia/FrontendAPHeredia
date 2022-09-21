@@ -1,0 +1,35 @@
+
+.degrade2 {
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+}
+
+.degrade {
+    background: #FFAFBD;
+    background: -webkit-linear-gradient(to left, #ffc3a0, #FFAFBD);
+    background: linear-gradient(to left, #ffc3a0, #FFAFBD);
+}
+
+.text{
+    font-family: "Sofia", sans-serif;
+    text-shadow: 3px 3px 3px #ababab;
+    font-weight:100;
+}
+
+.btn-outline-pink {
+    --bs-btn-color: #fd0da1;
+    --bs-btn-border-color: #fd0da1;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #fd0da1;
+    --bs-btn-hover-border-color: #fd0da1;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #fd0da1;
+    --bs-btn-active-border-color: #fd0da1;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fd0da1;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #fd0da1;
+    --bs-gradient: none;
+  }

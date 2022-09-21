@@ -1,0 +1,48 @@
+<div class="experiencia shadow-border mb-4 mt-0">
+  <div class="d-flex mb-4">
+    <h1>Experiencia</h1>
+    <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light"
+        (click)="nuevaExperienciaActve()">
+        <i class="bi bi-plus-lg">Agregar</i>
+      </button></div>
+  </div>
+
+  <app-experiencia-new *ngIf="newExperienciaActive" (actualizar)="HijoExperienciaActive($event)"></app-experiencia-new>
+
+  <div class="container" cdkDropList (cdkDropListDropped)="dropExperiencia($event)">
+
+    <div cdkDrag class="row mb-5" *ngFor="let experiencia of miExperiencia">
+      <div class="handle" cdkDragHandle>
+        <div *ngIf="isLogged">
+          <svg width="24px" fill="red" viewBox="0 0 24 24">
+            <path
+              d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+            </path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12 ">
+        <h4>Empresa: {{experiencia.company}} </h4><br>
+        <h5>Puesto: {{experiencia.position}} </h5><br>
+        <h6>Descripcion: {{experiencia.description}}</h6><br>
+        <h6> Modo: {{experiencia.mode}} </h6> <br>
+        <h6>Comenzo: {{experiencia.start}} </h6><br>
+        <h6> Termino: {{experiencia.end}} </h6><br>
+       <h6>Tiempo duracion: {{experiencia.timeElapsed}}</h6>
+      </div>
+      <div class="col-lg-6 col-sm-12"><img class="img-fluid" [src]="experiencia.img_url" alt=""></div>
+
+      <div class="row">
+        <div class=" icons iconadd" *ngIf="isLogged">
+          <button type="button" class="btn btn-outline-success m-2" routerLink="/ExperienciaEdit/{{experiencia.id}}">
+            <i class="bi bi-pencil"></i>Editar
+          </button>
+          <button type="button" class="btn btn-outline-danger m-2" (click)="delete(experiencia.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <form [formGroup]="formNewEducacion" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+  
+        <div class="form-group">
+          <label for="school">Nombre de la Institucion</label>
+          <input formControlName="school" type="text" class="form-control" id="school" name="school" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="title">Titulo</label>
+          <input formControlName="title"  type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="url_img">Url imagen de la institucion</label>
+          <input formControlName="url_img"  type="text" class="form-control" id="url_img" name="url_img"  required>
+        </div>
+        <div class="form-group">
+          <label for="score"> puntos</label>
+          <input formControlName="score" type="text" class="form-control" id="score" name="score"  required>
+        </div>
+        <div class="form-group">
+          <label for="start">Comenzo</label>
+          <input formControlName="start" type="text" class="form-control" id="start" name="start"  required>
+        </div>
+        <div class="form-group">
+          <label for="end">Termino</label>
+          <input formControlName="end" type="text" class="form-control" id="end" name="end"  required>
+        </div>
+   
+        <button class="btn btn-danger my-4">Crear</button>
+      </form>
+    </div>
+  </div>

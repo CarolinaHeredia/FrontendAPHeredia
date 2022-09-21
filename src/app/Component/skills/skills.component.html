@@ -1,0 +1,43 @@
+<div class="shadow-border mb-4 mt-0">
+    <div class="conteiner-fluid mb-5">
+        <div class="d-flex">
+            <h1 style="margin-bottom:30px;">Hard & Soft Skills</h1>
+            <div class="iconadd" *ngIf="isLogged">
+                <button type="button" class="btn btn-light" (click)="nuevoSkillsActve()">
+                    <i class="bi bi-plus-lg"> Agregar </i>
+                </button>
+            </div>
+        </div>
+        <app-skills-new *ngIf="newSkillsActive" (actualizar)="HijoSkillsActive($event)"></app-skills-new>
+
+        <div cdkDropList (cdkDropListDropped)="dropSkills($event)">
+
+            <div cdkDrag class="row mb-5" *ngFor="let skills of miSkills">
+                <div class="handle" cdkDragHandle>
+                    <div *ngIf="isLogged">
+                        <svg width="24px" fill="red" viewBox="0 0 24 24">
+                            <path
+                                d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                            </path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h5>{{skills.name}}</h5>
+                <div class="col-10">
+                    <span class="bar"><span class="html" [ngStyle]="{'width.%':skills.progress}"></span></span>
+                </div>
+                <div class="col-2">
+                    <span>{{skills.progress + "%"}}</span>
+                </div>
+                <div class=" icons" *ngIf="isLogged">
+                    <button type="button" class="btn btn-outline-pink m-2" routerLink="/Secciones/SkillsEdit/{{skills.id}}">
+                        <i class="bi bi-pencil"></i>Editar
+                    </button>
+                    <button type="button" class="btn btn-outline-danger m-2" (click)="delete(skills.id)">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

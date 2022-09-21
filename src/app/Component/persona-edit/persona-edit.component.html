@@ -1,0 +1,42 @@
+<div class="container-fluid shadow-border mt-0 ">
+    <div class="row">
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+       <h5 class="d-flex justify-content-center">EDICION DE PERFIL</h5>
+
+      <!--   <div class="form-group">
+     <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="miPortfolio.name">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Apellido</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="miPortfolio.lastName">
+      </div>
+    
+      <div class="form-group">
+        <label for="profession">Profesion</label>
+        <input type="text" class="form-control" id="profession" name="profession" [(ngModel)]="miPortfolio.profession">
+      </div>
+      <div class="form-group">
+        <label for="ubication">ubicacion</label>
+        <input type="text" class="form-control" id="ubication" name="ubication" [(ngModel)]="miPortfolio.ubication">
+      </div>
+--> 
+        <div class="form-group">
+          <label for="aboutMe">Sobre mi</label>
+          <input type="text" class="form-control" id="aboutMe" name="aboutMe" [(ngModel)]="miPortfolio.aboutMe">
+        </div>
+        <div class="form-group">
+          <label for="url_img">Url de la imagen de perfil</label>
+          <input type="text" class="form-control" id="url_img" name="url_img" [(ngModel)]="miPortfolio.url_img">
+        </div>
+
+        <div class="form-group">
+          <label for="url_backimg">Url de imagen de fondo</label>
+          <input type="text" class="form-control" id="url_backimg" name="url_backimg" [(ngModel)]="miPortfolio.url_backimg">
+        </div>
+       
+       
+        <button class="btn btn-danger mb-2 mt-2">Editar</button>
+      </form>
+    </div>
+  </div>

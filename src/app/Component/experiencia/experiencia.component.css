@@ -1,0 +1,29 @@
+     
+.experiencia__header{
+ display: flex;
+}
+
+.experiencia__header .iconadd{
+    position: relative;
+    margin-left: auto;
+    margin-right: 10px;
+    align-self: center;
+   }
+
+   .experiencia__conteiner{
+display: flex;
+   }
+
+   .icons{
+    margin-left: auto;
+    margin-right: 15px;
+    align-self: center;
+   }
+
+   ul{
+    list-style: none;
+   }
+
+   .experiencia__conteiner a{
+    margin-left: 15px;
+   }

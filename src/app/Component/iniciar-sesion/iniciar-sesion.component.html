@@ -1,0 +1,46 @@
+
+<div class="text-center" *ngIf="isLogged; else logged">
+   <h2>Ya has iniciado sesión</h2>
+   <button type="button" (click)="Volver($event)" class="btn btn-outline-success btn-block">Volver</button>
+</div>
+
+<ng-template #logged>
+
+<div class="degrade d-flex justify-content-center" style="height:100vh;">
+   <div class="col-xl-4 col-lg-4 col-md-8 col-sm-9 col-xs-11 px-5 mt-5">
+      <div class="login border p-3">
+         <h1>Iniciar Sesion</h1>
+         <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+            <label for="User" class="form-label style_text">Usuario</label>
+            <input formControlName="User" type="text"
+               [ngClass]="{'is-invalid':User?.errors && User?.touched, 'is-valid':!User?.errors && User?.touched}"
+               class="form-control" id="exampleInputUsuario" aria-describedby="usuarioHelp">
+            <div *ngIf="User?.errors && User?.touched">
+               <p *ngIf="User?.hasError('required')" class="text-danger">
+                  El usuario es requerido
+               </p>
+            </div>
+            <label for="Password" class="form-label style_text">Contraseña</label>
+            <input formControlName="Password"
+               [ngClass]="{'is-invalid':Password?.errors && Password?.touched, 'is-valid':!Password?.errors && Password?.touched}"
+               type="password" class="form-control" id="Password">
+            <div *ngIf="Password?.errors && Password?.touched">
+               <p *ngIf="Password?.hasError('required')" class="text-danger">
+                  La contraseña es requerida.
+               </p>
+               <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+                  La contraseña debe ser de 8 o mas caracteres.
+               </p>
+            </div>
+
+            <p *ngIf="isLogginFail" class="text-danger">
+               El usuario o la contraseña son incorrectos.
+            </p>
+            <button type="submit" class="btn btn-primary style_text mt-4">Enviar</button>
+         </form>
+      </div>
+   </div>
+</div>
+
+</ng-template>
+

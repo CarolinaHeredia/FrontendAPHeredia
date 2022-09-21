@@ -1,0 +1,47 @@
+
+<div class="shadow-border mb-4 mt-0">
+    <div class="conteiner-fluid mb-5">
+           <div class="d-flex">
+            <h1>Proyectos</h1>
+            <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light" (click)="nuevoProyectoActve()">
+                <i class="bi bi-plus-lg"> Agregar </i>
+            </button></div> 
+           </div> 
+        <app-proyectos-new *ngIf="newProyectoActive" (actualizar)="HijoProyectoActive($event)"></app-proyectos-new>
+
+        <div class="row" cdkDropList (cdkDropListDropped)="dropProyecto($event)">
+            <div cdkDrag class="col-lg-4 col-md-6  " *ngFor="let proyecto of miProyecto">
+                <div class="handle" cdkDragHandle>
+                    <div *ngIf="isLogged">
+                        <svg width="24px" fill="red" viewBox="0 0 24 24">
+                            <path
+                                d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                            </path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="card shadow-border">
+                    <img [src]="proyecto.url_img" class="card-img-top" alt="imagen proyecto" style="height:200px ;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{proyecto.name}}</h5>
+                        <p class="card-text">{{proyecto.description}}</p>
+                        <p class="card-text"> Fue Creado: {{proyecto.buildingDate}}</p>
+                        <div class="text-center"><a [href]="proyecto.link" class="btn btn-primary">Ir a...</a></div>
+                    </div>
+                    <div class="row text-center" *ngIf="isLogged">
+                        <div class="icons">
+                            <button type="button" class="btn btn-outline-primary m-2" routerLink="/Secciones/ProyectoEdit/{{proyecto.id}}">
+                                <i class="bi bi-pencil"></i>Editar
+                            </button>
+                            <button type="button" class="btn btn-outline-danger m-2" (click)="delete(proyecto.id)">
+                                <i class="bi bi-trash"></i> Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

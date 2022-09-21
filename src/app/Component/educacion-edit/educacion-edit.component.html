@@ -1,0 +1,34 @@
+<div class="container-fluid shadow-border mt-0 ">
+    <div class="row">
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+       <h5 class="d-flex justify-content-center">EDICION DE EDUCACION</h5>
+        <div class="form-group">
+          <label for="school">Nombre de la Institucion</label>
+          <input type="text" class="form-control" id="school" name="school" [(ngModel)]="miEducacion.school">
+        </div>
+        <div class="form-group">
+          <label for="title">Titulo</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="miEducacion.title">
+        </div>
+       
+        <div class="form-group">
+          <label for="url_img">Link de la imagen de la Institucion</label>
+          <input type="text" class="form-control" id="url_img" name="url_img" [(ngModel)]="miEducacion.url_img">
+        </div>
+        <div class="form-group">
+          <label for="score">--- </label>
+          <input type="text" class="form-control" id="score" name="mode" [(ngModel)]="miEducacion.score">
+        </div>
+        <div class="form-group">
+          <label for="start">Fecha de comienzo</label>
+          <input type="text" class="form-control" id="start" name="start" [(ngModel)]="miEducacion.start">
+        </div>
+        <div class="form-group">
+          <label for="end">Fecha de finalizacion</label>
+          <input type="text" class="form-control" id="end" name="end" [(ngModel)]="miEducacion.end">
+        </div>
+       
+        <button class="btn btn-danger mb-2 mt-2">Editar</button>
+      </form>
+    </div>
+  </div>

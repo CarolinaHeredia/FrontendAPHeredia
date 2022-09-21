@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <form [formGroup]="formNewProyecto" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+  
+        <div class="form-group">
+          <label for="school">Nombre del proyecto</label>
+          <input formControlName="name" type="text" class="form-control" id="name" name="name" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Desccripcion</label>
+          <input formControlName="description"  type="text" class="form-control" id="description" name="description" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingDate">Fecha de Construccion</label>
+          <input formControlName="buildingDate"  type="text" class="form-control" id="buildingDate" name="buildingDate"  required>
+        </div>
+        <div class="form-group">
+          <label for="link"> Link que eenvie al proyecto</label>
+          <input formControlName="link" type="text" class="form-control" id="link" name="link"  required>
+        </div>
+        <div class="form-group">
+          <label for="url_img">Url que lleve a la imagen</label>
+          <input formControlName="url_img" type="text" class="form-control" id="url_img" name="url_img"  required>
+        </div>
+        <button class="btn btn-success my-4">Crear</button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,59 @@
+<div class="conteiner-fluid shadow-border-p ">
+  <!----------------------------------------------------------------------------------------------------------->
+  <div class="fondo" style="position:relative;">
+    <img [src]="miPortfolio.url_backimg" alt="programacion" width="100%" height="300px">
+    <div style="top:25px ;right:5%;z-index:10;" class="position-absolute"><button type="button"
+        class="btn btn-info m-2 rounded-circle " *ngIf="isLogged" routerLink="/Secciones/PerfilEdit/{{miPortfolio.id}}">
+        <i class="bi bi-pencil"></i>
+      </button></div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------->
+
+  <div class="photo position-absolute mx-p translate-middle-y">
+    <img [src]="miPortfolio.url_img" alt="foto perfil" width="160px" height="160px" class="rounded-circle">
+    <button type="button" class="btn btn-outline-pink m-2 rounded-circle centrar" *ngIf="isLogged" routerLink="/Secciones/PerfilEdit/{{miPortfolio.id}}">
+      <i class="bi bi-pencil"></i>
+    </button>
+  </div>
+  <div class="mt-p" style="margin-left:10% ;">
+    <div class="name p-0 d-flex">
+      <h1> {{miPortfolio.name}} {{miPortfolio.lastName}}
+      <button type="button" class="btn btn-outline-pink m-2 rounded-circle" *ngIf="isLogged" routerLink="/Secciones/PerfilEdit/{{miPortfolio.id}}">
+        <i class="bi bi-pencil"></i>
+      </button></h1>
+    </div>
+    <h3>{{miPortfolio.ubication}}</h3>
+    <h5>Full Stack Developer Jr.</h5>
+
+    <div class="mb-5 mt-1">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-pink dropdown-toggle me-2 mb-2" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Tengo interes en
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="https://ar.cienradios.com/" target="_blank">Musica</a></li>
+          <li><a class="dropdown-item" href="https://www.bbc.com/mundo/topics/cyx5krnw38vt"
+              target="_blank">Tecnologia</a></li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-outline-pink me-2 mb-2"><span>Añadir Secciones</span> </button>
+      <button type="button" class="btn btn-outline-pink me-2 mb-2">Mas.. </button>
+    </div>
+  </div>
+</div>
+
+<!----------------------------ACERCA DE MI -------------------------->
+
+<div class="shadow-border mb-4">
+  <div class="d-flex ">
+    <h1>Acerca de mi</h1>
+    <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light" routerLink="/Secciones/PerfilEdit/{{miPortfolio.id}}">
+        <i class="bi bi-plus-lg">Editar</i>
+      </button></div>
+  </div>
+  <div class="row">
+    <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px;">
+       SOY <strong>{{miPortfolio.profession}}</strong>, {{miPortfolio.aboutMe}}</p>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container-fluid shadow-border mt-0 ">
+  <div class="row">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+     <h5 class="d-flex justify-content-center">EDICION DE EXPERIENCIA</h5>
+      <div class="form-group">
+        <label for="company">Nombre de la Empresa</label>
+        <input type="text" class="form-control" id="company" name="company" [(ngModel)]="miExperiencia.company">
+      </div>
+      <div class="form-group">
+        <label for="position">Puesto que ocupa.</label>
+        <input type="text" class="form-control" id="position" name="position" [(ngModel)]="miExperiencia.position">
+      </div>
+     
+      <div class="form-group">
+        <label for="img_url">Link de la imagen de la empresa</label>
+        <input type="text" class="form-control" id="img_url" name="img_url" [(ngModel)]="miExperiencia.img_url">
+      </div>
+      <div class="form-group">
+        <label for="modo">Modo </label>
+        <input type="text" class="form-control" id="mode" name="mode" [(ngModel)]="miExperiencia.mode">
+      </div>
+      <div class="form-group">
+        <label for="start">Fecha de comienzo</label>
+        <input type="text" class="form-control" id="start" name="start" [(ngModel)]="miExperiencia.start">
+      </div>
+      <div class="form-group">
+        <label for="end">Fecha de finalizacion</label>
+        <input type="text" class="form-control" id="end" name="end" [(ngModel)]="miExperiencia.end">
+      </div>
+      <div class="form-group">
+        <label for="end">Tiempo de duracion</label>
+        <input type="text" class="form-control" id="timeElapsed" name="timeElapsed" [(ngModel)]="miExperiencia.timeElapsed">
+      </div>
+      <button class="btn btn-danger mb-2 mt-2">Editar</button>
+    </form>
+  </div>
+</div>

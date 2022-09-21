@@ -1,0 +1,16 @@
+<div class="container-fluid shadow-border mt-0 ">
+    <div class="row">
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <h5 class="d-flex justify-content-center">EDICION DE APTITUDES</h5>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="school" name="name" [(ngModel)]="miSkills.name">
+            </div>
+            <div class="form-group">
+                <label for="progress">Porcentaje que le atribuye</label>
+                <input type="text" class="form-control" id="progress" name="progress" [(ngModel)]="miSkills.progress">
+            </div>
+            <button class="btn btn-danger mb-2 mt-2">Editar</button>
+        </form>
+    </div>
+</div>

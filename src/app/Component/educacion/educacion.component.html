@@ -1,0 +1,44 @@
+<div class="educacion shadow-border mb-4 mt-0">
+  <div class="d-flex mb-4">
+    <h1>Educacion</h1>
+    <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light" (click)="nuevaEducacionActive()">
+        <i class="bi bi-plus-lg">Agregar</i>
+      </button></div>
+  </div>
+  <app-educacion-new *ngIf="newEducacionActive" (actualizar)="HijoEducacionActive($event)"> </app-educacion-new>
+
+  <ul cdkDropList (cdkDropListDropped)="dropEducacion($event)">
+    <li cdkDrag style="list-style: none;" class="mb-5" *ngFor="let educacion of miEducacion">
+      <div class="handle" cdkDragHandle>
+        <div *ngIf="isLogged">
+          <svg width="24px" fill="red" viewBox="0 0 24 24">
+            <path
+              d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+            </path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="row border-bottom">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center mb-4">
+          <img [src]="educacion.url_img" alt="logo escuela" style="height:100px;">
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
+          <h3>Instituto Educativo: {{educacion.school}}</h3>
+          <h5>Titulo: {{educacion.title}}</h5>
+          <p> {{educacion.start}}/{{educacion.end}}</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class=" icons iconadd" *ngIf="isLogged">
+            <button type="button" class="btn btn-outline-success m-2" routerLink="/EducacionEdit/{{educacion.id}}">
+              <i class="bi bi-pencil"></i>Editar
+            </button>
+            <button type="button" class="btn btn-outline-danger m-2" (click)="delete(educacion.id)">
+              <i class="bi bi-trash"></i> Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

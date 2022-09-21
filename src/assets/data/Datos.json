@@ -1,0 +1,131 @@
+{
+   "name": "Carolina Heredia",
+   "backimagen": "./assets/Banner.jpg",
+   "imagen": "./assets/Perfil.JPG",
+   "profesion": "Profesora de economia",
+   "company": {
+      "name": "Tossolini",
+      "img": "url de imagen",
+      "url": "link que te direcciona a la empresa"
+   },
+   "school": {
+      "name": "Profesorado Mariano Moreno",
+      "img": "url de imagen",
+      "url": "link que te direcciona a la empresa"
+   },
+   "ubicacion": "Bell Ville - (Cordoba)",
+   "sobreMi": "jhkahsjdjadshasdaskjdksjaskdh",
+   "experiencia": [
+      {
+         "position": "Profesora",
+         "company": "Comercial",
+         "img": "link que te direcciona a la empresa",
+         "mode": "Jornada completa",
+         "start": "20 agosto 2022",
+         "end": "actualidad",
+         "timeElapsed": "20 años 5 meses",
+         "description": "doy clases"
+      },
+      {
+         "position": "Programadora",
+         "company": "Microsoft",
+         "img": "link que te direcciona a la empresa",
+         "mode": "Jornada completa",
+         "start": "20 agosto 2025",
+         "end": "20 agosto 2028",
+         "timeElapsed": "20 años 5 meses",
+         "description": "manejo compu"
+      }
+   ],
+   "educacion": [
+      {
+         "school": "Mariano moreno",
+         "title": "Profesora",
+         "img": "link que te direcciona a la empresa",
+         "career": "Profesora",
+         "score": 0,
+         "start": "2016",
+         "end": "2020"
+      },
+      {
+         "school": "Centro de enseñanza tecnica I",
+         "title": "Tecnologo",
+         "img": "link que te direcciona a la empresa",
+         "career": "Desarrollo de software",
+         "score": 82,
+         "start": "2014",
+         "end": "2018"
+      },
+      {
+         "school": "Enet numero 1",
+         "title": "Tecnologo",
+         "img": "link que te direcciona a la empresa",
+         "career": "Desarrollo de software",
+         "score": 82,
+         "start": "2014",
+         "end": "2018"
+      }
+   ],
+   "aptitudes": [
+      {
+         "name": "Resolucion de problemas",
+         "progres": 90,
+         "confirms": 2,
+         "confirmsNames": [
+            {
+               "name": "Carolina"
+            }
+         ]
+      },
+      {
+         "name": "Html",
+         "progres": 75,
+         "confirms": 2,
+         "confirmsNames": [
+            {
+               "name": "Carolina"
+            }
+         ]
+      },
+      {
+         "name": "Css",
+         "progres": 60,
+         "confirms": 2,
+         "confirmsNames": [
+            {
+               "name": "Carolina"
+            }
+         ]
+      },
+      {
+         "name": "Java",
+         "progres": 20,
+         "confirms": 2,
+         "confirmsNames": [
+            {
+               "name": "Carolina"
+            }
+         ]
+      },
+      {
+         "name": "Diseño de sistemas",
+         "progres": 25,
+         "confirms": 3,
+         "confirmsNames": [
+            {
+               "name": "Carolina"
+            }
+         ]
+      }
+   ],
+   "archivements": [
+      {
+         "name": "Huaro App",
+         "descripcion": "mi proyecto fue ... descripcion "
+      },
+      {
+         "name": "Lanterns 19/09",
+         "descripcion": "mi proyecto fue ..."
+      }
+   ]
+}

@@ -1,0 +1,32 @@
+<div class="container-fluid shadow-border mt-0 ">
+    <div class="row">
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <h5 class="d-flex justify-content-center">EDICION DEl PROYECTO </h5>
+            <div class="form-group">
+                <label for="name">Nombre del proyecto</label>
+                <input type="text" class="form-control" id="school" name="name" [(ngModel)]="miProyecto.name">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripcion</label>
+                <input type="text" class="form-control" id="description" name="description"
+                    [(ngModel)]="miProyecto.description">
+            </div>
+            <div class="form-group">
+                <label for="buildingDate">Fecha de construccion</label>
+                <input type="text" class="form-control" id="buildingDate" name="buildingDate"
+                    [(ngModel)]="miProyecto.buildingDate">
+            </div>
+
+            <div class="form-group">
+                <label for="link"> Link que lleve al proyecto</label>
+                <input type="text" class="form-control" id="link" name="link" [(ngModel)]="miProyecto.link">
+            </div>
+
+            <div class="form-group">
+                <label for="url_img">Link de la imagen del proyecto</label>
+                <input type="text" class="form-control" id="url_img" name="url_img" [(ngModel)]="miProyecto.url_img">
+            </div>
+            <button class="btn btn-danger mb-2 mt-2">Editar</button>
+        </form>
+    </div>
+</div>
