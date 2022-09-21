@@ -20,10 +20,9 @@ import { GuardGuard } from './Servicios/guard.guard';
 
 
 const routes: Routes = [
-   //,canActivate:[GuardGuard]
-   
+
   { path: 'Secciones', component: SeccionesComponent},
-  { path: 'Login', component: IniciarSesionComponent},
+  { path: 'Login', component: IniciarSesionComponent,canActivate:[GuardGuard]},
   { path: 'Error', component: ErrorComponent},
   { path: '', redirectTo: 'Secciones/Portfolio', pathMatch: 'full' },
   { path: '**', redirectTo: 'Error', pathMatch: 'full' }

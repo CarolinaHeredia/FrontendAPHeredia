@@ -13,11 +13,11 @@ export class GuardChildGuard implements CanActivateChild {
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (this.tokenService.getToken()) {
-        return  true;
+        return  false;
       } else {
         this.router.navigate(['/Login'])
       }
-      return  false;
+      return  true;
   }
   
 }

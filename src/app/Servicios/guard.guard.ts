@@ -17,7 +17,7 @@ export class GuardGuard implements CanActivate {
     if (this.tokenService.getToken()) {
       return  true;
     } else {
-      this.router.navigate(['/Login'])
+      this.router.navigate(['/Secciones','Portfolio'])
     }
     return  false;
 }
