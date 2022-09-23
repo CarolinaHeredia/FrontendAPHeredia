@@ -47,7 +47,7 @@ export class ExperienciaEditComponent implements OnInit {
           'Experiencia modificada con Exito!',
           'success'
         )
-        this.router.navigate(['Portfolio'])
+        this.router.navigate(['/Secciones','Portfolio'])
       }, err => {
         Swal.fire({
           icon: 'error',

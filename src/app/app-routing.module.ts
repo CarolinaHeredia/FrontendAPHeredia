@@ -15,14 +15,13 @@ import { SkillsEditComponent } from './Component/skills-edit/skills-edit.compone
 import { SkillsComponent } from './Component/skills/skills.component';
 import { SeccionesComponent } from './Modulo/secciones/secciones.component';
 import { GuardChildGuard } from './Servicios/guard-child.guard';
-import { GuardGuard } from './Servicios/guard.guard';
+import { Guard } from './Servicios/guard.guard';
 
 
 
 const routes: Routes = [
-
   { path: 'Secciones', component: SeccionesComponent},
-  { path: 'Login', component: IniciarSesionComponent,canActivate:[GuardGuard]},
+  { path: 'Login', component: IniciarSesionComponent},
   { path: 'Error', component: ErrorComponent},
   { path: '', redirectTo: 'Secciones/Portfolio', pathMatch: 'full' },
   { path: '**', redirectTo: 'Error', pathMatch: 'full' }
