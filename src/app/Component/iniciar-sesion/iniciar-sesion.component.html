@@ -36,11 +36,14 @@
             <p *ngIf="isLogginFail" class="text-danger">
                El usuario o la contraseña son incorrectos.
             </p>
-            <button type="submit" class="btn btn-primary style_text mt-4">Enviar</button>
+            <div class=" d-flex justify-content-center"><button type="submit" class="btn btn-primary mt-4" >Entrar</button></div>
          </form>
+      <div class=" d-flex justify-content-center"> <button type="button" (click)="Volver($event)" class="btn btn-outline-pink mt-4">Visitante</button></div>
       </div>
-   </div>
+   </div>  
+
 </div>
+
 
 </ng-template>
 

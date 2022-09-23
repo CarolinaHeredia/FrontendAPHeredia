@@ -10,9 +10,7 @@ import { TokenService } from '../Service/token.service';
 export class GuardChildGuard implements CanActivateChild {
 
   constructor(private tokenService:TokenService,private router:Router){}
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivateChild(childRoute: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
       if (this.tokenService.isLogged()) {
         return  true;

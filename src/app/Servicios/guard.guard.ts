@@ -21,8 +21,9 @@ export class Guard implements CanActivate {
       Swal.fire({
         icon: 'error',
         title: 'Stop',
-        text: 'Usted no esta autorizado para acceder a esta pagina!',
+        text: 'Usted no esta autorizado para acceder a esta pagina INICIE SESION!',
       })
+       this.router.navigate(['/','Login']);
     return  false;
     }
 }

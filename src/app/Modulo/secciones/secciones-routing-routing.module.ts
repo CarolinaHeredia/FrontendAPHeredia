@@ -21,14 +21,14 @@ const routes: Routes = [
   { path: 'Portfolio', component: PortfolioComponent},
   { path: 'AcercaDeMi', component: AcercaDeComponent },
   { path: 'Experiencia', component: ExperienciaComponent},
-  { path: 'ExperienciaEdit/:id', component: ExperienciaEditComponent,canActivateChild:[GuardChildGuard]  },
+  { path: 'ExperienciaEdit/:id', component: ExperienciaEditComponent,canActivate:[Guard] },
   { path: 'Educacion', component: EducacionComponent },
-  { path: 'EducacionEdit/:id', component: EducacionEditComponent,canActivateChild:[GuardChildGuard]  },
-  { path: 'Proyecto', component: ProyectosComponent,canActivateChild:[GuardChildGuard] },
-  { path: 'ProyectoEdit/:id', component: ProyectosEditComponent ,canActivateChild:[GuardChildGuard] },
+  { path: 'EducacionEdit/:id', component: EducacionEditComponent,canActivate:[Guard]   },
+  { path: 'Proyecto', component: ProyectosComponent },
+  { path: 'ProyectoEdit/:id', component: ProyectosEditComponent ,canActivate:[Guard]  },
   { path: 'Skills', component: SkillsComponent },
-  { path: 'SkillsEdit/:id', component: SkillsEditComponent,canActivateChild:[GuardChildGuard]  },
-  { path: 'PerfilEdit/:id', component: PersonaEditComponent,canActivateChild:[GuardChildGuard] },
+  { path: 'SkillsEdit/:id', component: SkillsEditComponent,canActivate:[Guard]   },
+  { path: 'PerfilEdit/:id', component: PersonaEditComponent,canActivate:[Guard] },
  ]
 }
 ];
