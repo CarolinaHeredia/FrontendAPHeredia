@@ -28,7 +28,7 @@
                         <h5 class="card-title">{{proyecto.name}}</h5>
                         <p class="card-text">{{proyecto.description}}</p>
                         <p class="card-text"> Fue Creado: {{proyecto.buildingDate}}</p>
-                        <div class="text-center"><a [href]="proyecto.link" class="btn btn-primary">Ir a...</a></div>
+                        <div class="text-center"><a [href]="proyecto.link" target="_blank" class="btn btn-primary">Ir a...</a></div>
                     </div>
                     <div class="row text-center" *ngIf="isLogged">
                         <div class="icons">

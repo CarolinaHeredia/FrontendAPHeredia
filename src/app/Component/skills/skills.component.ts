@@ -14,8 +14,8 @@ import Swal from 'sweetalert2';
 })
 export class SkillsComponent implements OnInit {
 
-  skillsComponent: SkillsComponent[] = [];
-  miSkills: any;
+  miSkills: Skills[];
+  Skills: Skills;
 
   isLogged = false;
   newSkillsActive = false;
@@ -77,7 +77,7 @@ export class SkillsComponent implements OnInit {
 
 
   onUpdate(id?: number): void {
-    this.skillsService.update(id, this.miSkills).subscribe(
+    this.skillsService.update(id, this.Skills).subscribe(
       data => {
         Swal.fire(
           'Ediatada!',

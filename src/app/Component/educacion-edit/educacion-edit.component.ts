@@ -12,8 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class EducacionEditComponent implements OnInit {
 
-  //miEducacion: Educacion = null;
-  miEducacion: any;
+  miEducacion: Educacion[];
+  Educacion: Educacion;
 
   constructor(private educacionService: EducacionService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -21,14 +21,13 @@ export class EducacionEditComponent implements OnInit {
 
     const id = this.activatedRoute.snapshot.params['id'];
     this.educacionService.detail(id).subscribe(data => {
-      this.miEducacion = data;
+      this.Educacion = data;
     }, err => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'No se pudo cargar vuelva a intentarlo!',
       })
-
     })
   }
 
@@ -38,7 +37,7 @@ export class EducacionEditComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.educacionService.update(this.miEducacion.id, this.miEducacion).subscribe(
+    this.educacionService.update(this.Educacion.id, this.Educacion).subscribe(
       data => {
         this.cargarEducacion();
         Swal.fire(
@@ -47,7 +46,6 @@ export class EducacionEditComponent implements OnInit {
           'success'
         )
         this.router.navigate(['/Secciones','Portfolio']);
-
       }, err => {
         Swal.fire({
           icon: 'error',

@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Educacion } from 'src/app/Modelos/educacionM';
 import { TokenService } from 'src/app/Service/token.service';
 import { EducacionService } from 'src/app/Servicios/educacion.service';
 import Swal from 'sweetalert2';
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 export class EducacionComponent implements OnInit {
 
   educacion: EducacionComponent[] = [];
-  miEducacion: any;
+  miEducacion: Educacion[];
 
   isLogged = false;
   newEducacionActive = false;

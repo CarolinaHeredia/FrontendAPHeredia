@@ -17,7 +17,7 @@ import Swal from 'sweetalert2';
 export class ExperienciaNewComponent implements OnInit {
 
 
-  miExperiencia: any;
+  miExperiencia: Experiencia[];
   newExperienciaActive=true;
   editExperienciaActve = true;
   formNewExperiencia: FormGroup;

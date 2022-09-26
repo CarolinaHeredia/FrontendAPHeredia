@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./proyectos-edit.component.css']
 })
 export class ProyectosEditComponent implements OnInit {
-  miProyecto: any;
+  miProyecto: Proyecto[];
+  Proyecto:Proyecto;
 
   constructor(private proyectoService: ProyectosService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -19,7 +20,7 @@ export class ProyectosEditComponent implements OnInit {
     
     const id = this.activatedRoute.snapshot.params['id'];
     this.proyectoService.detail(id).subscribe(data => {
-      this.miProyecto = data;
+      this.Proyecto = data;
     }, err => {
       Swal.fire({
         icon: 'error',
@@ -37,7 +38,7 @@ export class ProyectosEditComponent implements OnInit {
 
     const id = this.activatedRoute.snapshot.params['id'];
 
-    this.proyectoService.update(this.miProyecto.id, this.miProyecto).subscribe(
+    this.proyectoService.update(this.Proyecto.id, this.Proyecto).subscribe(
       data => {
         this.cargarProyecto();
         Swal.fire(
@@ -45,7 +46,7 @@ export class ProyectosEditComponent implements OnInit {
           'modificada con Exito!',
           'success'
         )
-        this.router.navigate(['Secciones','/Portfolio']);
+        this.router.navigate(['Secciones','Portfolio']);
       }, err => {
         Swal.fire({
           icon: 'error',

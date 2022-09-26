@@ -15,9 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class ExperienciaComponent implements OnInit {
 
-
-  experiencia: ExperienciaComponent[] = [];
-  miExperiencia: any;
+  miExperiencia: Experiencia[];
+  
 
   isLogged = false;
   newExperienciaActive = false;
@@ -59,7 +58,7 @@ export class ExperienciaComponent implements OnInit {
                this.cargarExperiencia();
               Swal.fire(
                 'Eliminado!',
-                'Tu Experiencia fue eliminado correctamente.',
+                'Tu Experiencia fue eliminada correctamente.',
                 'success'
               )
             }, err => {

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ProyectosNewComponent implements OnInit {
 
-  miEducacion: any;
+  miProyecto: Proyecto[];
 
 
   editProyectoActive = false;
@@ -48,8 +48,8 @@ export class ProyectosNewComponent implements OnInit {
       data => {
         this.actualizar.emit(this.newProyectoActive);
         Swal.fire(
-          'Proyecto Actualizado!',
-          'modificada con Exito!',
+          'Proyecto Creado!',
+          'proyecto creado con Exito!',
           'success'
         )
       }, err => {

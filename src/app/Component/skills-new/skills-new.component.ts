@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class SkillsNewComponent implements OnInit {
 
-  miSkills: any;
+  Skills: Skills;
 
   newSkillsactive = true;
   formNewSkills: FormGroup;

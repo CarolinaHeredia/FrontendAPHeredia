@@ -12,7 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class SkillsEditComponent implements OnInit {
 
-  miSkills:any;
+  miSkills:Skills[];
+  Skills: Skills;
 
   constructor(private skillsService: SkillsService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -20,7 +21,7 @@ export class SkillsEditComponent implements OnInit {
     
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillsService.detail(id).subscribe(data => {
-      this.miSkills = data;
+      this.Skills = data;
     }, err => {
       Swal.fire({
         icon: 'error',
@@ -38,7 +39,7 @@ export class SkillsEditComponent implements OnInit {
 
     const id = this.activatedRoute.snapshot.params['id'];
 
-    this.skillsService.update(this.miSkills.id, this.miSkills).subscribe(
+    this.skillsService.update(this.Skills.id, this.Skills).subscribe(
       data => {
         this.cargarSkills();
         Swal.fire(

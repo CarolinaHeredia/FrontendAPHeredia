@@ -32,9 +32,7 @@ export class HeaderComponent implements OnInit {
 
   login(){
     this.storeService.setHeaderActive(false);
-  
-    this.router.navigate(['/','Login']);
-    
+    this.router.navigate(['/','Login']); 
   }
 
 }

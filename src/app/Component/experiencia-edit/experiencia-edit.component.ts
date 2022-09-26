@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 
 export class ExperienciaEditComponent implements OnInit {
 
-  miExperiencia:any;
+  miExperiencia:Experiencia[];
+  Experiencia:Experiencia;
 
   constructor(private experienciaService: ExperienciaService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -21,7 +22,7 @@ export class ExperienciaEditComponent implements OnInit {
     
     const id = this.activatedRoute.snapshot.params['id'];
     this.experienciaService.detail(id).subscribe(data => {
-      this.miExperiencia = data;
+      this.Experiencia = data;
     }, err => {
       Swal.fire({
         icon: 'error',
@@ -39,7 +40,7 @@ export class ExperienciaEditComponent implements OnInit {
 
     const id = this.activatedRoute.snapshot.params['id'];
 
-    this.experienciaService.update(this.miExperiencia.id, this.miExperiencia).subscribe(
+    this.experienciaService.update(this.Experiencia.id, this.Experiencia).subscribe(
       data => {
         this.cargarExperiencia();
         Swal.fire(

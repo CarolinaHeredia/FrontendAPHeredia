@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Proyecto } from 'src/app/Modelos/proyectoM';
 import { TokenService } from 'src/app/Service/token.service';
 import { ProyectosService } from 'src/app/Servicios/proyectos.service';
 import Swal from 'sweetalert2';
@@ -13,8 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class ProyectosComponent implements OnInit {
 
-  proyecto: ProyectosComponent[] = [];
-  miProyecto: any;
+  miProyecto: Proyecto[];
 
   isLogged = false;
   newProyectoActive = false;
@@ -82,7 +82,9 @@ export class ProyectosComponent implements OnInit {
     }else{}
   }
 
-
+  irA(url:string){
+    this.router.navigateByUrl('${url}');
+  }
 
   dropProyecto(event: CdkDragDrop<any>) {
     console.log(event);

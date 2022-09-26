@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 
 export class EducacionNewComponent implements OnInit {
 
-  miEducacion: any;
+  miEducacion: Educacion[];
   editEducacionActve = false;
   formNewEducacion: FormGroup;
   newEducacionActive:boolean =true;

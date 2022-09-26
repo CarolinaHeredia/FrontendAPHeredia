@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Persona } from 'src/app/Modelos/personaM';
 import { TokenService } from 'src/app/Service/token.service';
 import { PortfolioService } from 'src/app/Servicios/portfolio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-acerca-de',
@@ -22,6 +23,14 @@ export class AcercaDeComponent implements OnInit {
 
     this.isLogged=this.tokenService.isLogged();
 
+  }
+
+  newSeccion(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Seccion no funciona',
+      text: 'Estamos trabajando en esta Seccion!',
+    })
   }
 
 }

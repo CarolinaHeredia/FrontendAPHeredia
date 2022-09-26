@@ -23,17 +23,17 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-12 decorador " id="ExperienciaComponent">
-        <h4>Empresa: {{experiencia.company}} </h4>
-        <h5>Puesto: {{experiencia.position}} </h5>
-        <h6>Descripcion: {{experiencia.description}}</h6>
-        <h6> Modo: {{experiencia.mode}} </h6>
-        <h6>Comenzo: {{experiencia.start}} </h6>
-        <h6>Termino: {{experiencia.end}} </h6>
-        <h6>Tiempo duracion: {{experiencia.timeElapsed}}</h6>
+      <div class="col-lg-6 col-sm-12 border border-dark border-1 mb-2 background" style="border-radius: 20px;" id="ExperienciaComponent">
+        <h4 class="mt-5 ms-sm-0 ms-lg-4">Empresa: <span>{{experiencia.company}}</span> </h4><br><br>
+        <h5 class="ms-sm-0 ms-lg-4">Puesto: <span>{{experiencia.position}} </span></h5><br>
+        <h6 class="ms-sm-0 ms-lg-4">Descripcion:  <span>{{experiencia.description}}</span></h6><br>
+        <h6 class="ms-sm-0 ms-lg-4"> Modo: <span> {{experiencia.mode}}</span> </h6><br>
+        <h6 class="ms-sm-0 ms-lg-4">Comenzo:  <span> {{experiencia.start}}</span> </h6><br>
+        <h6 class="ms-sm-0 ms-lg-4">Termino:  <span>{{experiencia.end}}</span> </h6><br>
+        <h6 class="mb-5 ms-sm-0 ms-lg-4">Tiempo de duracion:  <span> {{experiencia.timeElapsed}} </span></h6>
       </div>
 
-      <div class="col-lg-6 col-sm-12 contenedor"><img class="imagen img-fluid" [src]="experiencia.img_url" alt=""></div>
+      <div class="col-lg-6 col-sm-12 contenedor"><img class="imagen img-fluid " style="border-radius: 20px;" [src]="experiencia.img_url" alt=""></div>
 
       <div class="row m-0 justify-content-center">
         <div class=" icons iconadd" *ngIf="isLogged">

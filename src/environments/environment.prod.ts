@@ -7,7 +7,8 @@ export const environment = {
  urlBackendEducacion: 'https://backendapheredia.herokuapp.com/educacion/',
  urlBackendExperiencia: 'https://backendapheredia.herokuapp.com/experiencia/',
  urlBackendProyecto:'https://backendapheredia.herokuapp.com/proyecto/',
- urlBackendAuth:'https://backendapheredia.herokuapp.com/auth/'*/
+ urlBackendAuth:'https://backendapheredia.herokuapp.com/auth/'
+*/
 
 
  urlBackendPersona: 'http://localhost:8080/persona/',
