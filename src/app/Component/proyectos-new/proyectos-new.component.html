@@ -4,26 +4,76 @@
   
         <div class="form-group">
           <label for="school">Nombre del proyecto</label>
-          <input formControlName="name" type="text" class="form-control" id="name" name="name" required>
+          <input formControlName="name" type="text" class="form-control" id="name" name="name" 
+          [ngClass]="{'is-invalid':name?.errors && name?.touched, 'is-valid':!name?.errors && name?.touched}"
+          aria-describedby="nameHelp">
+          <div *ngIf="name?.errors && name?.touched">
+            <p *ngIf="name?.hasError('required')" class="text-danger">
+               El nombre del proyecto es requerido.
+            </p>
+            <p *ngIf="name?.hasError('minlength') ||name?.hasError('maxlength')" class="text-danger">
+              El nombre del proyecto debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
   
         <div class="form-group">
           <label for="description">Desccripcion</label>
-          <input formControlName="description"  type="text" class="form-control" id="description" name="description" required>
+          <input formControlName="description"  type="text" class="form-control" id="description" name="description"
+          [ngClass]="{'is-invalid':description?.errors && description?.touched, 'is-valid':!description?.errors && description?.touched}"
+          aria-describedby="descriptionHelp">
+          <div *ngIf="description?.errors && description?.touched">
+            <p *ngIf="description?.hasError('required')" class="text-danger">
+               La descripcion es requerida.
+            </p>
+            <p *ngIf="description?.hasError('minlength') ||description?.hasError('maxlength')" class="text-danger">
+              La descripcion debe tener entre 4 y 250 caracteres.
+           </p>
+         </div>
         </div>
         <div class="form-group">
           <label for="buildingDate">Fecha de Construccion</label>
-          <input formControlName="buildingDate"  type="text" class="form-control" id="buildingDate" name="buildingDate"  required>
+          <input formControlName="buildingDate"  type="text" class="form-control" id="buildingDate" name="buildingDate"
+          [ngClass]="{'is-invalid':buildingDate?.errors && buildingDate?.touched, 'is-valid':!buildingDate?.errors && buildingDate?.touched}"
+          aria-describedby="buildingDateHelp">
+          <div *ngIf="buildingDate?.errors && buildingDate?.touched">
+            <p *ngIf="buildingDate?.hasError('required')" class="text-danger">
+               Fecha de construccion es requerida.
+            </p>
+            <p *ngIf="buildingDate?.hasError('minlength') ||buildingDate?.hasError('maxlength')" class="text-danger">
+              Fecha de construccion debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
         <div class="form-group">
-          <label for="link"> Link que eenvie al proyecto</label>
-          <input formControlName="link" type="text" class="form-control" id="link" name="link"  required>
+          <label for="link"> Link que lleve al proyecto</label>
+          <input formControlName="link" type="text" class="form-control" id="link" name="link"
+          [ngClass]="{'is-invalid':link?.errors && link?.touched, 'is-valid':!link?.errors && link?.touched}"
+          aria-describedby="linkHelp">
+          <div *ngIf="link?.errors && link?.touched">
+            <p *ngIf="link?.hasError('required')" class="text-danger">
+               El link que lleva al proyecto es requerido.
+            </p>
+            <p *ngIf="link?.hasError('minlength') ||link?.hasError('maxlength')" class="text-danger">
+              El link que lleva al proyecto debe tener entre 4 y 250 caracteres.
+           </p>
+         </div>
         </div>
         <div class="form-group">
           <label for="url_img">Url que lleve a la imagen</label>
-          <input formControlName="url_img" type="text" class="form-control" id="url_img" name="url_img"  required>
+          <input formControlName="url_img" type="text" class="form-control" id="url_img" name="url_img"
+          [ngClass]="{'is-invalid':url_img?.errors && url_img?.touched, 'is-valid':!url_img?.errors && url_img?.touched}"
+          aria-describedby="url_imgHelp">
+          <div *ngIf="url_img?.errors && url_img?.touched">
+            <p *ngIf="url_img?.hasError('required')" class="text-danger">
+               La url es requerida.
+            </p>
+            <p *ngIf="url_img?.hasError('minlength') ||url_img?.hasError('maxlength')" class="text-danger">
+              La url debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
-        <button class="btn btn-success my-4">Crear</button>
+        <button class="btn btn-success my-4" [disabled]="this.formNewProyecto.disable">Crear</button>
       </form>
     </div>
   </div>

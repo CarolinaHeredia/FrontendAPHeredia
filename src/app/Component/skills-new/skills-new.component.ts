@@ -23,8 +23,8 @@ export class SkillsNewComponent implements OnInit {
   constructor(private skillsService: SkillsService, private formBuilder: FormBuilder, private router: Router) {
     this.formNewSkills = this.formBuilder.group({
 
-      name: ['', [Validators.required, Validators.minLength(4)]],
-      progress: ['', [Validators.required, Validators.minLength(4)]]
+      name: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
+      progress: ['', [Validators.required, Validators.minLength(0),Validators.maxLength(3)]]
 
     });
   }

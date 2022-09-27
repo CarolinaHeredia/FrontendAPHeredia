@@ -14,7 +14,6 @@ import Swal from 'sweetalert2';
 })
 export class EducacionComponent implements OnInit {
 
-  educacion: EducacionComponent[] = [];
   miEducacion: Educacion[];
 
   isLogged = false;
@@ -79,8 +78,6 @@ export class EducacionComponent implements OnInit {
       }
     })
   }
-
-
     dropEducacion(event: CdkDragDrop<any>) {
     moveItemInArray(this.miEducacion, event.previousIndex, event.currentIndex);
   }

@@ -25,11 +25,11 @@ export class ProyectosNewComponent implements OnInit {
   constructor(private proyectoService: ProyectosService, private formBuilder: FormBuilder, private router: Router) {
     this.formNewProyecto = this.formBuilder.group({
 
-      name: ['', [Validators.required, Validators.minLength(4)]],
-      description: ['', [Validators.required, Validators.minLength(4)]],
-      buildingDate: ['', [Validators.required, Validators.minLength(4)]],
-      link: ['', [Validators.required, Validators.minLength(4)]],
-      url_img: ['', [Validators.required, Validators.minLength(4)]]
+      name: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
+      description: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(250)]],
+      buildingDate: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
+      link: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(250)]],
+      url_img: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(250)]]
 
 
     });

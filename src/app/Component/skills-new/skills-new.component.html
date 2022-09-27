@@ -4,12 +4,32 @@
   
         <div class="form-group">
           <label for="name">Nombre de la aptitud</label>
-          <input formControlName="name" type="text" class="form-control" id="name" name="name" formControlName="name" required>
+          <input formControlName="name" type="text" class="form-control" id="name" name="name" formControlName="name" 
+          [ngClass]="{'is-invalid':name?.errors && name?.touched, 'is-valid':!name?.errors && name?.touched}"
+          aria-describedby="nameHelp">
+          <div *ngIf="name?.errors && name?.touched">
+            <p *ngIf="name?.hasError('required')" class="text-danger">
+               El nombre es requerido.
+            </p>
+            <p *ngIf="name?.hasError('minlength') ||name?.hasError('maxlength')" class="text-danger">
+              El nombre debe tener entre 3 y 50 caracteres.
+           </p>
+         </div>
         </div>
   
         <div class="form-group">
           <label for="progress">Calificacion en porcentaje.</label>
-          <input formControlName="progress"  type="text" class="form-control" id="progress" name="progress" required>
+          <input formControlName="progress"  type="text" class="form-control" id="progress" name="progress" 
+          [ngClass]="{'is-invalid':progress?.errors && progress?.touched, 'is-valid':!progress?.errors && progress?.touched}"
+          aria-describedby="progressHelp">
+          <div *ngIf="progress?.errors && progress?.touched">
+            <p *ngIf="progress?.hasError('required')" class="text-danger">
+               El valor es requerida.
+            </p>
+            <p *ngIf="progress?.hasError('minlength') ||progress?.hasError('maxlength')" class="text-danger">
+              el valor debe variar entre 0 y 100.
+           </p>
+         </div>
         </div>
      
         <button class="btn btn-info my-4" >Crear</button>

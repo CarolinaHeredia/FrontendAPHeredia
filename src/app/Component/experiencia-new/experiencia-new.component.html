@@ -4,38 +4,108 @@
 
       <div class="form-group">
         <label for="company">Nombre de la Empresa</label>
-        <input formControlName="company" type="text" class="form-control" id="company" name="company" formControlName="company" required>
+        <input formControlName="company" type="text" class="form-control" id="company" name="company" formControlName="company" 
+        [ngClass]="{'is-invalid':company?.errors && company?.touched, 'is-valid':!company?.errors && company?.touched}"
+          aria-describedby="companyHelp">
+          <div *ngIf="company?.errors && company?.touched">
+            <p *ngIf="company?.hasError('required')" class="text-danger">
+               La Empresa es requerida.
+            </p>
+            <p *ngIf="company?.hasError('minlength') ||company?.hasError('maxlength')" class="text-danger">
+              El nombre de la Empresa debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
 
       <div class="form-group">
         <label for="position">Puesto que ocupa.</label>
-        <input formControlName="position"  type="text" class="form-control" id="position" name="position" required>
+        <input formControlName="position"  type="text" class="form-control" id="position" name="position"
+        [ngClass]="{'is-invalid':position?.errors && position?.touched, 'is-valid':!position?.errors && position?.touched}"
+          aria-describedby="positionHelp">
+          <div *ngIf="position?.errors && position?.touched">
+            <p *ngIf="position?.hasError('required')" class="text-danger">
+               El puesto es requerido.
+            </p>
+            <p *ngIf="position?.hasError('minlength') ||position?.hasError('maxlength')" class="text-danger">
+              El puesto debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="description">Descripcion </label>
-        <input formControlName="description"  type="text" class="form-control" id="description" name="description" required>
+        <input formControlName="description"  type="text" class="form-control" id="description" name="description" 
+        [ngClass]="{'is-invalid':description?.errors && description?.touched, 'is-valid':!description?.errors && description?.touched}"
+          aria-describedby="descriptionHelp">
+          <div *ngIf="description?.errors && description?.touched">
+            <p *ngIf="description?.hasError('required')" class="text-danger">
+               La descripcion es requerida.
+            </p>
+            <p *ngIf="description?.hasError('minlength') ||description?.hasError('maxlength')" class="text-danger">
+              La descripcion debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="img_url">Link de la imagen de la empresa</label>
-        <input formControlName="img_url"  type="text" class="form-control" id="img_url" name="img_url"  required>
+        <input formControlName="img_url"  type="text" class="form-control" id="img_url" name="img_url"
+        [ngClass]="{'is-invalid':img_url?.errors && img_url?.touched, 'is-valid':!img_url?.errors && img_url?.touched}"
+          aria-describedby="img_urlHelp">
+          <div *ngIf="img_url?.errors && img_url?.touched">
+            <p *ngIf="img_url?.hasError('required')" class="text-danger">
+               La Url es requerida.
+            </p>
+            <p *ngIf="img_url?.hasError('minlength') ||img_url?.hasError('maxlength')" class="text-danger">
+              La Url debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="mode">Modo </label>
-        <input formControlName="mode" type="text" class="form-control" id="mode" name="mode"  required>
+        <input formControlName="mode" type="text" class="form-control" id="mode" name="mode"
+        [ngClass]="{'is-invalid':mode?.errors && mode?.touched, 'is-valid':!mode?.errors && mode?.touched}"
+          aria-describedby="modeHelp" placeholder="jornada completa, media jornada">
+          <div *ngIf="mode?.errors && mode?.touched">
+            <p *ngIf="mode?.hasError('required')" class="text-danger">
+               El modo es requerido.
+            </p>
+            <p *ngIf="mode?.hasError('minlength') ||mode?.hasError('maxlength')" class="text-danger">
+              El modo debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="start">Fecha de comienzo</label>
-        <input formControlName="start" type="text" class="form-control" id="start" name="start"  required>
+        <input formControlName="start" type="text" class="form-control" id="start" name="start" 
+        [ngClass]="{'is-invalid':start?.errors && start?.touched, 'is-valid':!start?.errors && start?.touched}"
+          aria-describedby="startHelp">
+          <div *ngIf="start?.errors && start?.touched">
+            <p *ngIf="start?.hasError('required')" class="text-danger">
+               Fecha que comenzo es requerida.
+            </p>
+            <p *ngIf="start?.hasError('minlength') ||start?.hasError('maxlength')" class="text-danger">
+             Fecha que comenzo debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="end">Fecha de finalizacion</label>
-        <input  formControlName="end"  type="text" class="form-control" id="end" name="end" required>
+        <input  formControlName="end"  type="text" class="form-control" id="end" name="end"
+        [ngClass]="{'is-invalid':end?.errors && end?.touched, 'is-valid':!end?.errors && end?.touched}"
+          aria-describedby="endHelp">
+          <div *ngIf="end?.errors && end?.touched">
+            <p *ngIf="end?.hasError('required')" class="text-danger">
+               Fecha que finalizo es requerida.
+            </p>
+            <p *ngIf="end?.hasError('minlength') ||end?.hasError('maxlength')" class="text-danger">
+              Fecha que finalizo debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
       </div>
       <div class="form-group">
         <label for="timeElapsed">Tiempo de duracion en el puesto</label>
         <input formControlName="timeElapsed" type="text" class="form-control" id="timeElapsed" name="timeElapsed"  required>
       </div>
-      <button class="btn btn-info my-4" >Crear</button>
+      <button class="btn btn-info my-4" [disabled]="this.formNewExperiencia.disable" >Crear</button>
     </form>
   </div>
 </div>

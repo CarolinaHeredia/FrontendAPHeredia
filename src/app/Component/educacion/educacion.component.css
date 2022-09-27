@@ -1,0 +1,21 @@
+h4,
+h5,
+p{
+    text-align: center;
+}
+
+h4{
+    background-color: #fd0da1;
+    background-size:contain;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+h5{
+    font-style: oblique;
+}
+
+p{
+    color:#fd0da1;
+    font-weight: 700;
+}

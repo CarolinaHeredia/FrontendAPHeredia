@@ -27,11 +27,6 @@
         margin-left: 15px;
      }
 
-     .background {
-        background-size: auto;
-        border-radius: 20px;
-     }
-
      .shadow-border2:hover {
         border-width: 0.5px;
         border-color: rgba(245, 7, 86, 0.7);

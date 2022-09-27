@@ -7,7 +7,7 @@
   </div>
   <app-educacion-new *ngIf="newEducacionActive" (actualizar)="HijoEducacionActive($event)"> </app-educacion-new>
 
-  <ul cdkDropList (cdkDropListDropped)="dropEducacion($event)"  class="p-1">
+  <ul cdkDropList (cdkDropListDropped)="dropEducacion($event)" class="p-3">
     <li cdkDrag style="list-style: none;" class="mb-5 " *ngFor="let educacion of miEducacion">
       <div class="handle" cdkDragHandle>
         <div *ngIf="isLogged">
@@ -19,16 +19,27 @@
           </svg>
         </div>
       </div>
-      <div class="row border-bottom">
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center mb-4">
-          <img [src]="educacion.url_img" alt="logo escuela" class="img-fluid " style="height:200px;border-radius: 20px;">
+      <div class="row border-bottom  pb-5">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 shadow-border m-0 p-0 " *ngIf="educacion.url_img!=''; else IMG">
+         <img [src]="educacion.url_img" alt="logo escuela" class="img-fluid" style="height:250px;width:800px; border-radius:40px;">
         </div>
-        <div class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
-          <h3>Instituto Educativo: {{educacion.school}}</h3>
-          <h5>Titulo: {{educacion.title}}</h5>
-          <p> {{educacion.start}}/{{educacion.end}}</p>
+       <ng-template  #IMG>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 shadow-border m-0 p-0 ">
+          <img src="./assets/backedu.jpg" alt="logo escuela" class="img-fluid" style="height:250px;width:800px;border-radius:40px;">
+      </div>
+       </ng-template>
+       <div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-xs-12 mt-4" *ngIf="!isLogged; else NG">
+          <div class="d-flex justify-content-center"><h4 >{{educacion.school}}</h4></div>
+          <div class="d-flex justify-content-center"><h5>Titulo: {{educacion.title}}</h5></div>
+          <div class="d-flex justify-content-center"><p>{{educacion.start}}/{{educacion.end}}</p></div>
+      </div>
+      <ng-template #NG> 
+        <div class="col-xl-5 col-lg-5 col-md-7 col-sm-12 col-xs-12 mt-4">
+          <div class="d-flex justify-content-center"><h4>{{educacion.school}}</h4></div>
+          <div class="d-flex justify-content-center"><h5>Titulo: {{educacion.title}}</h5></div>
+          <div class="d-flex justify-content-center"><p> {{educacion.start}}/{{educacion.end}}</p></div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
           <div class=" icons iconadd" *ngIf="isLogged">
             <button type="button" class="btn btn-outline-warning m-2" routerLink="/Secciones/EducacionEdit/{{educacion.id}}">
               <i class="bi bi-pencil"></i>Editar
@@ -38,6 +49,7 @@
             </button>
           </div>
         </div>
+        </ng-template>
       </div>
     </li>
   </ul>

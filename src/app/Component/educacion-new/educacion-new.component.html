@@ -4,31 +4,98 @@
   
         <div class="form-group">
           <label for="school">Nombre de la Institucion</label>
-          <input formControlName="school" type="text" class="form-control" id="school" name="school" required>
+          <input formControlName="school" type="text" class="form-control" id="school" name="school" required
+          [ngClass]="{'is-invalid':school?.errors && school?.touched, 'is-valid':!school?.errors && school?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="school?.errors && school?.touched">
+            <p *ngIf="school?.hasError('required')" class="text-danger">
+               La institucion es requerida
+            </p>
+            <p *ngIf="school?.hasError('minlength') ||school?.hasError('maxlength')" class="text-danger">
+              El nombre de la institucion debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
   
         <div class="form-group">
           <label for="title">Titulo</label>
-          <input formControlName="title"  type="text" class="form-control" id="title" name="title" required>
+          <input formControlName="title"  type="text" class="form-control" id="title" name="title" required
+          [ngClass]="{'is-invalid':title?.errors && title?.touched, 'is-valid':!title?.errors && title?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="title?.errors && title?.touched">
+            <p *ngIf="title?.hasError('required')" class="text-danger">
+               El titulo es requerido
+            </p>
+            <p *ngIf="title?.hasError('minlength') ||title?.hasError('maxlength')" class="text-danger">
+              El titulo debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
+
         <div class="form-group">
           <label for="url_img">Url imagen de la institucion</label>
-          <input formControlName="url_img"  type="text" class="form-control" id="url_img" name="url_img"  required>
+          <input formControlName="url_img"  type="text" class="form-control" id="url_img" name="url_img"  required
+          [ngClass]="{'is-invalid':url_img?.errors && url_img?.touched, 'is-valid':!url_img?.errors && url_img?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="url_img?.errors && url_img?.touched">
+            <p *ngIf="url_img?.hasError('required')" class="text-danger">
+               La url es requerida.
+            </p>
+            <p *ngIf="url_img?.hasError('minlength') ||url_img?.hasError('maxlength')" class="text-danger">
+              La url debe tener como maximo 250 caracteres.
+           </p>
+         </div>
         </div>
+
+        
         <div class="form-group">
           <label for="score"> puntos</label>
-          <input formControlName="score" type="text" class="form-control" id="score" name="score"  required>
+          <input formControlName="score" type="text" class="form-control" id="score" name="score"  required
+          [ngClass]="{'is-invalid':score?.errors && score?.touched, 'is-valid':!score?.errors && score?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="score?.errors && score?.touched">
+            <p *ngIf="score?.hasError('required')" class="text-danger">
+                Es requerido
+            </p>
+            <p *ngIf="score?.hasError('minlength') ||score?.hasError('maxlength')" class="text-danger">
+              Debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>  
         </div>
+
+
         <div class="form-group">
           <label for="start">Comenzo</label>
-          <input formControlName="start" type="text" class="form-control" id="start" name="start"  required>
+          <input formControlName="start" type="text" class="form-control" id="start" name="start"  required
+          [ngClass]="{'is-invalid':start?.errors && start?.touched, 'is-valid':!start?.errors && start?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="start?.errors && start?.touched">
+            <p *ngIf="start?.hasError('required')" class="text-danger">
+              La fecha de ingreso es requerida.
+            </p>
+            <p *ngIf="start?.hasError('minlength') ||start?.hasError('maxlength')" class="text-danger">
+              La fecha de ingreso debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
+
+
         <div class="form-group">
           <label for="end">Termino</label>
-          <input formControlName="end" type="text" class="form-control" id="end" name="end"  required>
+          <input formControlName="end" type="text" class="form-control" id="end" name="end"  required
+          [ngClass]="{'is-invalid':end?.errors && end?.touched, 'is-valid':!end?.errors && end?.touched}"
+          aria-describedby="schoolHelp">
+          <div *ngIf="end?.errors && end?.touched">
+            <p *ngIf="end?.hasError('required')" class="text-danger">
+               La fecha de finalizacion es requerida.
+            </p>
+            <p *ngIf="end?.hasError('minlength') ||end?.hasError('maxlength')" class="text-danger">
+              La fecha de finalizacion debe tener entre 4 y 50 caracteres.
+           </p>
+         </div>
         </div>
    
-        <button class="btn btn-danger my-4">Crear</button>
+        <button class="btn btn-danger my-4" [disabled]="this.formNewEducacion.invalid">Crear</button>
       </form>
     </div>
   </div>

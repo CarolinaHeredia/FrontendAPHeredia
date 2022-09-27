@@ -18,7 +18,6 @@ export class EducacionNewComponent implements OnInit {
   formNewEducacion: FormGroup;
   newEducacionActive:boolean =true;
 
-
   @Output()
   actualizar:EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -26,12 +25,12 @@ export class EducacionNewComponent implements OnInit {
   constructor(private educacionService: EducacionService, private formBuilder: FormBuilder, private router: Router) {
     this.formNewEducacion = this.formBuilder.group({
 
-      school: ['', [Validators.required, Validators.minLength(4)]],
-      title: ['', [Validators.required, Validators.minLength(4)]],
-      url_img: ['', [Validators.required, Validators.minLength(4)]],
-      score: ['', [Validators.required, Validators.minLength(4)]],
-      start: ['', [Validators.required, Validators.minLength(4)]],
-      end: ['', [Validators.required, Validators.minLength(4)]]
+      school: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
+      title: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
+      url_img: ['', [Validators.required, Validators.minLength(0),Validators.maxLength(250)]],
+      score: ['', [Validators.required, Validators.minLength(1),Validators.maxLength(50)]],
+      start: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(100)]],
+      end: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(100),]]
 
     });
   }
@@ -62,7 +61,6 @@ export class EducacionNewComponent implements OnInit {
         })
       }
     )
-    
   }
 
 
