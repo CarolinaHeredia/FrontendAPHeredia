@@ -9,6 +9,8 @@ h4{
     background-size:contain;
     color: aliceblue;
     font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 10px;
 }
 
 h5{

@@ -29,7 +29,7 @@ export class AcercaDeComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Seccion no funciona',
-      text: 'Estamos trabajando en esta Seccion!',
+      text: 'Pronto se habilitara!',
     })
   }
 

@@ -27,7 +27,7 @@ export class EducacionNewComponent implements OnInit {
 
       school: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
       title: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(50)]],
-      url_img: ['', [Validators.required, Validators.minLength(0),Validators.maxLength(250)]],
+      url_img: ['', [Validators.required,Validators.maxLength(250)]],
       score: ['', [Validators.required, Validators.minLength(1),Validators.maxLength(50)]],
       start: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(100)]],
       end: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(100),]]

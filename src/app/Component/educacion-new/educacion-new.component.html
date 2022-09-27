@@ -39,7 +39,7 @@
           aria-describedby="schoolHelp">
           <div *ngIf="url_img?.errors && url_img?.touched">
             <p *ngIf="url_img?.hasError('required')" class="text-danger">
-               La url es requerida.
+               La url es requerida, si dejas un espacio, se coloca imagen por defecto.
             </p>
             <p *ngIf="url_img?.hasError('minlength') ||url_img?.hasError('maxlength')" class="text-danger">
               La url debe tener como maximo 250 caracteres.
@@ -71,7 +71,7 @@
           aria-describedby="schoolHelp">
           <div *ngIf="start?.errors && start?.touched">
             <p *ngIf="start?.hasError('required')" class="text-danger">
-              La fecha de ingreso es requerida.
+              La fecha de ingreso es requerida
             </p>
             <p *ngIf="start?.hasError('minlength') ||start?.hasError('maxlength')" class="text-danger">
               La fecha de ingreso debe tener entre 4 y 50 caracteres.
@@ -87,10 +87,10 @@
           aria-describedby="schoolHelp">
           <div *ngIf="end?.errors && end?.touched">
             <p *ngIf="end?.hasError('required')" class="text-danger">
-               La fecha de finalizacion es requerida.
+               end es requerido
             </p>
             <p *ngIf="end?.hasError('minlength') ||end?.hasError('maxlength')" class="text-danger">
-              La fecha de finalizacion debe tener entre 4 y 50 caracteres.
+              El end debe tener entre 4 y 50 caracteres.
            </p>
          </div>
         </div>

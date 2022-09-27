@@ -65,9 +65,9 @@
      }
 
      span {
-        background-color: white;
         color: black;
         text-transform: uppercase;
+        font-weight: 700;
         padding-left: 15px;
      }
 

@@ -37,7 +37,6 @@ export class ExperienciaNewComponent implements OnInit {
       mode: ['', [Validators.required, Validators.minLength(4)]],
       start: ['', [Validators.required, Validators.minLength(4)]],
       end: ['', [Validators.required, Validators.minLength(4)]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
       timeElapsed: ['', [Validators.required, Validators.minLength(4)]]
     });
   }

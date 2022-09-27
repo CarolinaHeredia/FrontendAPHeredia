@@ -18,7 +18,7 @@
         </div>
   
         <div class="form-group">
-          <label for="description">Desccripcion</label>
+          <label for="description">Descripcion</label>
           <input formControlName="description"  type="text" class="form-control" id="description" name="description"
           [ngClass]="{'is-invalid':description?.errors && description?.touched, 'is-valid':!description?.errors && description?.touched}"
           aria-describedby="descriptionHelp">
@@ -49,7 +49,7 @@
           <label for="link"> Link que lleve al proyecto</label>
           <input formControlName="link" type="text" class="form-control" id="link" name="link"
           [ngClass]="{'is-invalid':link?.errors && link?.touched, 'is-valid':!link?.errors && link?.touched}"
-          aria-describedby="linkHelp">
+          aria-describedby="linkHelp" placeholder="https://....." >
           <div *ngIf="link?.errors && link?.touched">
             <p *ngIf="link?.hasError('required')" class="text-danger">
                El link que lleva al proyecto es requerido.
@@ -73,7 +73,7 @@
            </p>
          </div>
         </div>
-        <button class="btn btn-success my-4" [disabled]="this.formNewProyecto.disable">Crear</button>
+        <button class="btn btn-success my-4" [disabled]="!formNewProyecto.valid">Crear</button>
       </form>
     </div>
   </div>
