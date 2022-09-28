@@ -12,7 +12,8 @@ export class EducacionService {
   constructor(private httpClient:HttpClient) { 
   }
 
-  url=environment.urlBackendEducacion;
+  //url=environment.urlBackendEducacion;
+  url:String="https://backendapheredia.herokuapp.com/educacion/";
 
   public lista():Observable<Educacion[]>{
     return this.httpClient.get<Educacion[]>(this.url + 'lista');

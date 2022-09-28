@@ -1,4 +1,4 @@
-<div class="conteiner-fluid shadow-border-p ">
+<div class="conteiner-fluid shadow-border-p" @Entrar >
   <!----------------------------------------------------------------------------------------------------------->
   <div class="fondo" style="position:relative;">
     <img [src]="miPortfolio.url_backimg" alt="programacion" width="100%" height="300px">
@@ -45,7 +45,7 @@
 
 <!----------------------------ACERCA DE MI -------------------------->
 
-<div class="shadow-border mb-4">
+<div class="shadow-border mb-4" @Entrar>
   <div class="d-flex ">
     <h1>Acerca de mi</h1>
     <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light" routerLink="/Secciones/PerfilEdit/{{miPortfolio.id}}">

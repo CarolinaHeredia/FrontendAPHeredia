@@ -14,7 +14,8 @@ export class ExperienciaService {
 
 
  
- url = environment.urlBackendExperiencia;
+ //url = environment.urlBackendExperiencia;
+ url:String="https://backendapheredia.herokuapp.com/experiencia/";
 
   public lista():Observable<Experiencia[]>{
     return this.httpClient.get<Experiencia[]>(this.url + 'lista');

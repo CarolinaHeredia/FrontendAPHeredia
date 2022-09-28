@@ -1,4 +1,4 @@
-<div class="experiencia shadow-border mb-4 mt-0">
+<div class="experiencia shadow-border mb-4 mt-0" @Entrar>
   <div class="d-flex mb-4">
     <h1>Experiencia</h1>
     <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light"
@@ -33,7 +33,7 @@
         <h6 class="ms-sm-0 ms-lg-4">Tiempo de duracion:</h6> <span> {{experiencia.timeElapsed}} </span>
       </div>
 
-      <div class="col-lg-6 col-sm-12 contenedor mt-4"><img class="img-fluid " style="border-radius: 20px;" [src]="experiencia.img_url" alt=""></div>
+      <div class="col-lg-6 col-sm-12 contenedor mt-4"><img class="img-fluid imagen" style="border-radius: 20px;" [src]="experiencia.img_url" alt=""></div>
 
       <div class="row m-0 justify-content-center">
         <div class=" icons iconadd" *ngIf="isLogged">

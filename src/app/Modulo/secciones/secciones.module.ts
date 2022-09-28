@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SeccionesComponent } from '../secciones/secciones.component';
 import { SeccionesgRoutingModule } from './secciones-routing-routing.module';
 import { HeaderComponent } from 'src/app/Component/header/header.component';
-
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { HeaderComponent } from 'src/app/Component/header/header.component';
   ],
   imports: [
     CommonModule,
-    SeccionesgRoutingModule
+    SeccionesgRoutingModule,
+    BrowserAnimationsModule
   ],
   exports:[
     SeccionesComponent

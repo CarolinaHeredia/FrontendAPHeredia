@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,7 +11,24 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  styleUrls: ['./educacion.component.css'],
+  animations: [
+    trigger('resaltar', [
+      state('void', style({
+        transform: ('translateX(-100%)'),
+        opacity: 0
+
+      })),
+      transition(':enter', [
+        animate(1000, style({
+          transform: ('translateX(0)'),
+          opacity: 1
+
+        }))
+
+      ])
+    ])
+  ]
 })
 export class EducacionComponent implements OnInit {
 

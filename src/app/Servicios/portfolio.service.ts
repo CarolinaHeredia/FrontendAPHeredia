@@ -13,7 +13,8 @@ export class PortfolioService {
   constructor(private httpClient:HttpClient) { 
   }
 
-   url= environment.urlBackendPersona;
+  // url= environment.urlBackendPersona;
+  url:String="https://backendapheredia.herokuapp.com/persona/";
 
   public lista():Observable<Persona[]>{
 

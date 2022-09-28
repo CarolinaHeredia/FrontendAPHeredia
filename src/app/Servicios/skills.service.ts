@@ -14,7 +14,8 @@ export class SkillsService {
   }
 
 
-url=environment.urlBackendSkills;
+//url=environment.urlBackendSkills;
+url:String='https://backendapheredia.herokuapp.com/skills/';
 
   public lista():Observable<Skills[]>{
     return this.httpClient.get<Skills[]>(this.url + 'lista');

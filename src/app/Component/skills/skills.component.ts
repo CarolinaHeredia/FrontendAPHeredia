@@ -5,12 +5,31 @@ import { SkillsService } from 'src/app/Servicios/skills.service';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Skills } from 'src/app/Modelos/skillsM';
 import Swal from 'sweetalert2';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  styleUrls: ['./skills.component.css'],
+  animations: [
+    trigger('Entrar', [
+      state('void', style({
+        transform: ('translateX(100%)'),
+        opacity: 0
+      })),
+      transition(':enter', [
+        animate(1000, style({
+          transform: ('translateX(0)'),
+          opacity: 1
+
+        }))
+
+      ])
+    ])
+
+    
+  ]
 })
 export class SkillsComponent implements OnInit {
 
