@@ -20,7 +20,7 @@ import Swal from 'sweetalert2';
         opacity: 0
       })),
       transition(':enter', [
-        animate(1000, style({
+        animate(500, style({
           transform: ('translateX(0)'),
           opacity: 1
 
