@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Windows } from 'ng-bootstrap-icons/icons';
 import { LoginUsuario } from 'src/app/Modelos/login-usuario';
 import { AuthService } from 'src/app/Service/auth.service';
-import { StoreService } from 'src/app/Service/store.service';
 import { TokenService } from 'src/app/Service/token.service';
 
 @Component({
@@ -25,7 +24,7 @@ export class IniciarSesionComponent implements OnInit {
   email!: string;
 
   form: FormGroup;
-  constructor(private tokenService: TokenService, private authService: AuthService, private storeService: StoreService, private FormBuilder: FormBuilder, private ruta: Router) {
+  constructor(private tokenService: TokenService, private authService: AuthService, private FormBuilder: FormBuilder, private ruta: Router) {
 
     this.form = this.FormBuilder.group({
       User: ['', [Validators.required, Validators.minLength(4)]],
@@ -38,7 +37,7 @@ export class IniciarSesionComponent implements OnInit {
       this.isLogged = true;
       this.isLogginFail = false;
       this.roles = this.tokenService.getAuthorities();
-      this.storeService.setHeaderActive(false);
+    
     }
   }
 
@@ -55,7 +54,6 @@ export class IniciarSesionComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.storeService.setHeaderActive(true);
         this.ruta.navigate(['/Secciones', 'Portfolio'])
 
       }, err => {

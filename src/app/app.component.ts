@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { StoreService } from './Service/store.service';
 
 
 @Component({
@@ -13,13 +12,6 @@ export class AppComponent {
   
   headerActive:boolean;
 
-  constructor(private storeService: StoreService) { }
-  ngOnInit(): void {
-      this.storeService.EnviarheaderActiveObservable$.subscribe(headerActive => {
-      this.headerActive = headerActive;
-    });
-
-
-
-  }
+  constructor() { }
+  ngOnInit(): void {}
 }

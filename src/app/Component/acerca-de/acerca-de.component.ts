@@ -26,17 +26,39 @@ import { from, reduce } from 'rxjs';
 
       ])
     ])
-
-    
   ]
 })
+
+
+
 export class AcercaDeComponent implements OnInit {
   miPortfolio: Persona = new Persona("", "", "", "", "", "", "");
   isLogged = true;
-
-
+  value:number=0;
+  shadowHeaderActive=false;
+  shadowAboutmeActive=false;
 
   constructor(private datosPortfolio: PortfolioService, private tokenService: TokenService, private router: Router) { }
+
+
+  @HostListener('window:scroll', ['$event'])
+   onWindowScroll(e:any) {
+    this.value=e.target['scrollingElement'].scrollTop;
+    console.log(e.target['scrollingElement'].scrollTop);
+    console.log(this.value);
+    
+     if(50 < this.value && this.value <350 ){
+      this.shadowHeaderActive=true;
+      this.shadowAboutmeActive=false;
+     }else if(350 < this.value && this.value <7500){
+      this.shadowHeaderActive=false;
+      this.shadowAboutmeActive=true;
+     }
+     else{
+       this.shadowHeaderActive=false;
+       this.shadowAboutmeActive=false;
+      }
+    }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(Datos => {

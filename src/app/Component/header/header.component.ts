@@ -1,7 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Persona } from 'src/app/Modelos/personaM';
-import { StoreService } from 'src/app/Service/store.service';
 import { TokenService } from 'src/app/Service/token.service';
 import { PortfolioService } from 'src/app/Servicios/portfolio.service';
 
@@ -16,7 +15,7 @@ export class HeaderComponent implements OnInit {
   miPortfolio:any;
  
 
-  constructor(private tokenService:TokenService,private storeService:StoreService,private router:Router,private personaService:PortfolioService ) { }
+  constructor(private tokenService:TokenService,private router:Router,private personaService:PortfolioService ) { }
 
   ngOnInit(): void { 
       this.isLogged=this.tokenService.isLogged();
@@ -26,12 +25,12 @@ export class HeaderComponent implements OnInit {
   onLogOut():void{
     this.tokenService.logOut();
     window.location.reload();
-    this.storeService.setHeaderActive(true);
+  
   
   }
 
   login(){
-    this.storeService.setHeaderActive(false);
+   
     this.router.navigate(['/','Login']); 
   }
 

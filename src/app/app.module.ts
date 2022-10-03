@@ -29,7 +29,6 @@ import { SkillsNewComponent } from './Component/skills-new/skills-new.component'
 import { SkillsEditComponent } from './Component/skills-edit/skills-edit.component';
 import { SkillsComponent } from './Component/skills/skills.component';
 import { FooterComponent } from './Component/footer/footer.component';
-import { StoreService } from './Service/store.service';
 import { TokenService } from './Service/token.service';
 import { SeccionesModule } from './Modulo/secciones/secciones.module';
 import { SeccionesgRoutingModule } from './Modulo/secciones/secciones-routing-routing.module';
@@ -98,9 +97,7 @@ const icons = {
   ],
   providers:[
     interceptorProvider,
-    TokenService,
-    StoreService
-    
+    TokenService,  
   ],
   bootstrap: [AppComponent]
 })
