@@ -1,4 +1,4 @@
-<div class="educacion shadow-border mb-4 mt-0 p-s-md-0 p-s-lg-5" @resaltar>
+<div class="educacion shadow-border mb-4 mt-0 p-s-md-0 p-s-lg-5" @resaltar  [ngClass]="{'shadow-border-pink margin':this.shadowEducacionActive==true}">
   <div class="d-flex mb-4">
     <h1>Educacion</h1>
     <div class="iconadd" *ngIf="isLogged"> <button type="button" class="btn btn-light" (click)="nuevaEducacionActive()">

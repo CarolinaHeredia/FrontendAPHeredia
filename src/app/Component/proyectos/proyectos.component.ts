@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/Modelos/proyectoM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -33,8 +33,10 @@ import Swal from 'sweetalert2';
 })
 export class ProyectosComponent implements OnInit {
 
-  miProyecto: Proyecto[];
+  @Input()
+  shadowProyectoActive=false;
 
+  miProyecto: Proyecto[];
   isLogged = false;
   newProyectoActive = false;
   editProyectoActive = false;

@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/Modelos/experienciaM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -34,9 +34,11 @@ import Swal from 'sweetalert2';
 })
 export class ExperienciaComponent implements OnInit {
 
-  miExperiencia: Experiencia[];
-  
+   @Input()
+  shadowExperienciaActive=false;
 
+
+  miExperiencia: Experiencia[];
   isLogged = false;
   newExperienciaActive = false;
   editExperienciaActive = false;

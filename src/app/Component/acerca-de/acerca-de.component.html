@@ -1,4 +1,4 @@
-<div class="conteiner-fluid shadow-border-p" [ngClass]="{'shadow-border-pink':this.shadowHeaderActive==true}">
+<div class="conteiner-fluid shadow-border-p" [ngClass]="{'shadow-border-pink':this.shadowHeaderActive==true}" >
   <!----------------------------------------------------------------------------------------------------------->
   <div class="fondo" style="position:relative;">
     <img [src]="miPortfolio.url_backimg" alt="programacion" width="100%" height="300px">
@@ -24,6 +24,7 @@
     </div>
     <h3>{{miPortfolio.ubication}}</h3>
     <h5>Full Stack Developer Jr.</h5>
+    
 
     <div class="mb-5 mt-1">
       <div class="btn-group" role="group">
@@ -37,8 +38,7 @@
         </ul>
       </div>
       <button type="button" class="btn btn-outline-pink me-2 mb-2" (click)="newSeccion()"><span>Añadir Secciones</span> </button>
-      <button type="button" class="btn btn-outline-pink me-2 mb-2" href="https://angular.io/"
-      target="_blank">Mas.. </button>
+      <a href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa" target="_blank"><button type="button" class="btn btn-outline-pink me-2 mb-2">Mas.. </button></a>
     </div>
   </div>
 </div>
@@ -54,6 +54,6 @@
   </div>
   <div class="row">
     <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px;">
-       Mi profesion es {{miPortfolio.profession}}, {{miPortfolio.aboutMe}}</p>
+       Soy {{miPortfolio.profession}}, {{miPortfolio.aboutMe}}</p>
   </div>
 </div>

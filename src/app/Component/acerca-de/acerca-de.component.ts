@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from 'src/app/Modelos/personaM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -6,6 +6,8 @@ import { PortfolioService } from 'src/app/Servicios/portfolio.service';
 import { trigger, style, transition, animate, state,keyframes } from '@angular/animations'
 import Swal from 'sweetalert2';
 import { from, reduce } from 'rxjs';
+import { __importDefault } from 'tslib';
+
 
 @Component({
   selector: 'app-acerca-de',
@@ -32,33 +34,21 @@ import { from, reduce } from 'rxjs';
 
 
 export class AcercaDeComponent implements OnInit {
+  
+  @Input()
+  shadowHeaderActive=false;
+  
+  @Input()
+  shadowAboutmeActive=false;
+
+
   miPortfolio: Persona = new Persona("", "", "", "", "", "", "");
   isLogged = true;
   value:number=0;
-  shadowHeaderActive=false;
-  shadowAboutmeActive=false;
-
   constructor(private datosPortfolio: PortfolioService, private tokenService: TokenService, private router: Router) { }
 
 
-  @HostListener('window:scroll', ['$event'])
-   onWindowScroll(e:any) {
-    this.value=e.target['scrollingElement'].scrollTop;
-    console.log(e.target['scrollingElement'].scrollTop);
-    console.log(this.value);
-    
-     if(50 < this.value && this.value <350 ){
-      this.shadowHeaderActive=true;
-      this.shadowAboutmeActive=false;
-     }else if(350 < this.value && this.value <7500){
-      this.shadowHeaderActive=false;
-      this.shadowAboutmeActive=true;
-     }
-     else{
-       this.shadowHeaderActive=false;
-       this.shadowAboutmeActive=false;
-      }
-    }
+  
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(Datos => {
@@ -74,7 +64,7 @@ export class AcercaDeComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Seccion no funciona',
-      text: 'Pronto se habilitara!',
+      text: 'Se trabajara pronto!',
     })
   }
 

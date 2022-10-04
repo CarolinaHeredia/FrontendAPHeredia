@@ -21,3 +21,19 @@ p{
     color:#fd0da1;
     font-weight: 700;
 }
+
+
+.shadow-border-pink{
+    border-width: 0.5px;
+    border-color: rgba(253, 13, 161, 0.5);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-style: solid;
+    margin: 0px;
+    list-style: none;
+    box-shadow: 0 14px 28px rgba(253, 13, 161, 0.1), 0 10px 10px rgba(253, 13, 161, 0.2)
+  }
+  
+  .margin {
+    margin: 25px 0px 0px 0px;
+  }

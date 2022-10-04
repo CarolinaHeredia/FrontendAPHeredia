@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/Modelos/educacionM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -37,11 +37,19 @@ export class EducacionComponent implements OnInit {
   isLogged = false;
   newEducacionActive = false;
   editEducacionActive = false;
+  
+  @Input()
+  shadowEducacionActive=false;
+
+  
+  LEducacion:number=0;
 
   constructor(private educacionService: EducacionService, private tokenService: TokenService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarEducacion();
+    
+    
     this.isLogged=this.tokenService.isLogged();
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/Service/token.service';
 import { SkillsService } from 'src/app/Servicios/skills.service';
@@ -33,9 +33,11 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class SkillsComponent implements OnInit {
 
+  @Input()
+  shadowSkillsActive=false;
+
   miSkills: Skills[];
   Skills: Skills;
-
   isLogged = false;
   newSkillsActive = false;
   editSkillsActive = false;
