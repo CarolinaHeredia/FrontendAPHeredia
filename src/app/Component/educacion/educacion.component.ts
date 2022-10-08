@@ -1,7 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Educacion } from 'src/app/Modelos/educacionM';
 import { TokenService } from 'src/app/Service/token.service';
 import { EducacionService } from 'src/app/Servicios/educacion.service';
@@ -33,35 +34,35 @@ import Swal from 'sweetalert2';
 export class EducacionComponent implements OnInit {
 
   miEducacion: Educacion[];
-
+  Educacion: Educacion;
   isLogged = false;
   newEducacionActive = false;
   editEducacionActive = false;
-  
+
   @Input()
-  shadowEducacionActive=false;
+  shadowEducacionActive = false;
 
-  
-  LEducacion:number=0;
+  @Output() CEducacionEvent:EventEmitter<number>;
+  CEducacion:number = 0;
 
-  constructor(private educacionService: EducacionService, private tokenService: TokenService, private router: Router) { }
+  constructor(private educacionService: EducacionService, private tokenService: TokenService, private router: Router) { 
+  this.CEducacionEvent = new EventEmitter();
+  }
 
   ngOnInit(): void {
     this.cargarEducacion();
-    
-    
-    this.isLogged=this.tokenService.isLogged();
+    this.isLogged = this.tokenService.isLogged();
   }
 
   nuevaEducacionActive(): void {
     this.newEducacionActive = !this.newEducacionActive;
   }
 
-  HijoEducacionActive(cambiar:boolean): void {
-    if(cambiar){
-    this.newEducacionActive = !this.newEducacionActive;
-    this.cargarEducacion();
-    }else{}
+  HijoEducacionActive(cambiar: boolean): void {
+    if (cambiar) {
+      this.newEducacionActive = !this.newEducacionActive;
+      this.cargarEducacion();
+    } else { }
   }
 
   editarExperienciaActive() {
@@ -69,7 +70,14 @@ export class EducacionComponent implements OnInit {
   }
 
   cargarEducacion(): void {
-    this.educacionService.lista().subscribe(data => { this.miEducacion = data; })
+    this.educacionService.lista().subscribe(data => {
+      this.miEducacion = data;
+      this.CEducacion=data.length;
+      console.log("cantidad En Educacion:  " +this.CEducacion);
+      this.CEducacionEvent.emit(this.CEducacion)
+    })
+
+   
   }
 
   delete(id?: number) {
@@ -104,7 +112,7 @@ export class EducacionComponent implements OnInit {
       }
     })
   }
-    dropEducacion(event: CdkDragDrop<any>) {
+  dropEducacion(event: CdkDragDrop<any>) {
     moveItemInArray(this.miEducacion, event.previousIndex, event.currentIndex);
   }
 

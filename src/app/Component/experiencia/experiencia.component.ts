@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/Modelos/experienciaM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -37,13 +37,18 @@ export class ExperienciaComponent implements OnInit {
    @Input()
   shadowExperienciaActive=false;
 
+  @Output() CExperienciaEvent:EventEmitter<number>;
+  CExperiencia:number = 0;
+
 
   miExperiencia: Experiencia[];
   isLogged = false;
   newExperienciaActive = false;
   editExperienciaActive = false;
 
-  constructor(private experienciaService: ExperienciaService, private tokenService: TokenService, private router: Router) { }
+  constructor(private experienciaService: ExperienciaService, private tokenService: TokenService, private router: Router) {
+      this.CExperienciaEvent= new EventEmitter();
+   }
 
   ngOnInit(): void {
     this.cargarExperiencia();
@@ -59,7 +64,11 @@ export class ExperienciaComponent implements OnInit {
   }
 
   cargarExperiencia(): void {
-    this.experienciaService.lista().subscribe(data => { this.miExperiencia = data; })
+    this.experienciaService.lista().subscribe(data => { this.miExperiencia = data;
+      this.CExperiencia=data.length;
+      console.log("cantidad En Expereincia:  " +this.CExperiencia);
+      this.CExperienciaEvent.emit(this.CExperiencia)
+    })
   }
 
   delete(id?: number) {

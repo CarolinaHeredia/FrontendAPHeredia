@@ -7,6 +7,7 @@ import { ExperienciaService } from 'src/app/Servicios/experiencia.service';
 import { ProyectosService } from 'src/app/Servicios/proyectos.service';
 import { SkillsService } from 'src/app/Servicios/skills.service';
 
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -28,24 +29,35 @@ export class PortfolioComponent implements OnInit {
   shadowProyectoActive = false;
   shadowSkillsActive = false;
 
+  CEducacion: number = 1;
+  CExperiencia: number = 1;
+  CProyecto: number = 1;
+  CSkills: number = 1;
 
+  LAboutme = 50;   //dimensiones notebbok  titulo 90 + espacios 400 + 500 dimensiones de cada modelo
+  LEducacion = 90+400 +371 * this.CEducacion;
+  LExperiencia = 90+400+500 * this.CExperiencia;
+  LProyecto = 90+400+500 * this.CProyecto;
+  LSkills =90+400+600 * this.CSkills;
 
-  LEducacion = 600;
-  LExperiencia = 600;
-  LProyecto = 600;
-  LSkills = 500;
-  LAboutme=50;
 
   ngOnInit(): void {
     this.isLogged = this.tokenService.isLogged();
-    if (this.isLogged) {
-      this.LEducacion = 50 + 600;
-      this.LExperiencia = 50 + 600;
-      this.LProyecto = 50 + 600;
-      this.LSkills = 50 + 500;
-      this.LAboutme=50;
+
+    if (this.isLogged) {  //dimension en notebook
+      this.LAboutme = this.LAboutme;
+      this.LEducacion = this.CEducacion +600;
+      this.LExperiencia=this.CExperiencia +900;
+      this.LProyecto =this.CProyecto +1200;
+      this.LSkills =this.CSkills+1200;
     }
-  }  
+
+
+  }
+
+
+
+
 
   onLogOut(): void {
     this.tokenService.logOut();
@@ -58,26 +70,25 @@ export class PortfolioComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
-    console.log(e.target['scrollingElement'].scrollTop);
-    this.value = e.target['scrollingElement'].scrollTop;
 
-    console.log(this.educacionService.lista.length);
+    this.value = e.target['scrollingElement'].scrollTop;
+    console.log(this.value);
 
     if (1 < this.value && this.value < 300) {
       this.shadowHeaderActive = true;
       this.shadowAboutmeActive = false;
-    } else if ((300 < this.value )&& (this.value < (600+this.LAboutme))) { //About me
+    } else if ((300 < this.value) && (this.value < (600 + this.LAboutme))) { //About me
       this.shadowHeaderActive = false;
       this.shadowAboutmeActive = true;
       this.shadowEducacionActive = false;
-    } else if (((600+this.LAboutme) < this.value) && (this.value < (700 + this.LEducacion))) { //Educacion
+    } else if (((600 + this.LAboutme) < this.value) && (this.value < (700 + this.LEducacion))) { //Educacion
       this.shadowAboutmeActive = false;
       this.shadowEducacionActive = true;
       this.shadowExperienciaActive = false;
     } else if (((700 + this.LEducacion) < this.value) && (this.value < (1400 + this.LExperiencia))) { //Experiencia
       this.shadowEducacionActive = false;
       this.shadowExperienciaActive = true;
-      this.shadowProyectoActive = false;    
+      this.shadowProyectoActive = false;
     }
     else if (((1400 + this.LExperiencia) < this.value) && (this.value < (1900 + this.LProyecto))) { //Proyecto
       this.shadowExperienciaActive = false;

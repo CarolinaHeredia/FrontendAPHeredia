@@ -12,7 +12,7 @@ export class EducacionService {
   constructor(private httpClient:HttpClient) { 
   }
 
- // url=environment.urlBackendEducacion;
+  //url=environment.urlBackendEducacion;
   url:String="https://backendapheredia.herokuapp.com/educacion/";
 
   public lista():Observable<Educacion[]>{
@@ -28,14 +28,14 @@ export class EducacionService {
   } 
 
   public save(educacion: Educacion): Observable<any>{
-    return this.httpClient.post<any>(this.url + 'create',educacion);
+    return this.httpClient.post<Educacion>(this.url + 'create',educacion);
   }
 
   public update(id: number, educacion: Educacion): Observable<any>{
-    return this.httpClient.put<any>(this.url + `update/${id}`, educacion);
+    return this.httpClient.put<Educacion>(this.url + `update/${id}`, educacion);
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.url + `delete/${id}`);
+    return this.httpClient.delete<Educacion>(this.url + `delete/${id}`);
   }
 }

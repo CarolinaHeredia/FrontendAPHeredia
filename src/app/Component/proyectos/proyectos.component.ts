@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/Modelos/proyectoM';
 import { TokenService } from 'src/app/Service/token.service';
@@ -36,13 +36,19 @@ export class ProyectosComponent implements OnInit {
   @Input()
   shadowProyectoActive=false;
 
+  @Output() CProyectoEvent:EventEmitter<number>;
+  CProyecto:number = 0;
+
+
   miProyecto: Proyecto[];
   isLogged = false;
   newProyectoActive = false;
   editProyectoActive = false;
   
 
-  constructor(private proyectoService: ProyectosService, private tokenService: TokenService, private router: Router) { }
+  constructor(private proyectoService: ProyectosService, private tokenService: TokenService, private router: Router) { 
+    this.CProyectoEvent= new EventEmitter();
+  }
 
 
   ngOnInit(): void {
@@ -59,7 +65,11 @@ export class ProyectosComponent implements OnInit {
   }
 
   cargarProyecto(): void {
-    this.proyectoService.lista().subscribe(data => { this.miProyecto = data; })
+    this.proyectoService.lista().subscribe(data => { this.miProyecto = data;
+      this.CProyecto=data.length;
+      console.log("cantidad En Proyecto:  " +this.CProyecto);
+      this.CProyectoEvent.emit(this.CProyecto)
+    })
   }
 
   delete(id?: number) {

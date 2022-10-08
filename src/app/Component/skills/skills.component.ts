@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/Service/token.service';
 import { SkillsService } from 'src/app/Servicios/skills.service';
@@ -36,13 +36,18 @@ export class SkillsComponent implements OnInit {
   @Input()
   shadowSkillsActive=false;
 
+  @Output() CSkillsEvent:EventEmitter<number>;
+  CSkills:number = 0;
+
   miSkills: Skills[];
   Skills: Skills;
   isLogged = false;
   newSkillsActive = false;
   editSkillsActive = false;
 
-  constructor(private skillsService: SkillsService, private tokenService: TokenService, private router: Router) { }
+  constructor(private skillsService: SkillsService, private tokenService: TokenService, private router: Router) { 
+    this.CSkillsEvent=new EventEmitter();
+  }
 
   ngOnInit(): void {
     this.cargarSkills();
@@ -59,7 +64,10 @@ export class SkillsComponent implements OnInit {
   }
 
   cargarSkills(): void {
-    this.skillsService.lista().subscribe(data => { this.miSkills = data; })
+    this.skillsService.lista().subscribe(data => { this.miSkills = data; 
+      this.CSkills=data.length;
+      console.log("cantidad En Skills:  " +this.CSkills);
+      this.CSkillsEvent.emit(this.CSkills)})
   }
 
   delete(id?: number) {

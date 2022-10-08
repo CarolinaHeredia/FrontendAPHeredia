@@ -1,12 +1,12 @@
-<app-acerca-de [shadowHeaderActive]="shadowHeaderActive" [shadowAboutmeActive]="shadowAboutmeActive"></app-acerca-de>
+<app-acerca-de [shadowHeaderActive]="shadowHeaderActive" [shadowAboutmeActive]="shadowAboutmeActive"  ></app-acerca-de>
 
-<app-educacion [shadowEducacionActive]="shadowEducacionActive"> </app-educacion>
+<app-educacion [shadowEducacionActive]="shadowEducacionActive"  (CEducacionEvent)="CEducacion=$event"> </app-educacion>
 
-<app-experiencia [shadowExperienciaActive]="shadowExperienciaActive"> </app-experiencia>
+<app-experiencia [shadowExperienciaActive]="shadowExperienciaActive" (CExperienciaEvent)="CExperiencia=$event"> </app-experiencia>
 
-<app-proyectos [shadowProyectoActive]="shadowProyectoActive"></app-proyectos>
+<app-proyectos [shadowProyectoActive]="shadowProyectoActive"  (CProyectoEvent)="CProyecto=$event"></app-proyectos>
 
-<app-skills [shadowSkillsActive]="shadowSkillsActive"></app-skills>
+<app-skills [shadowSkillsActive]="shadowSkillsActive" (CSkillsEvent)="CSkills=$event"></app-skills>
 
 <app-footer></app-footer>
 
