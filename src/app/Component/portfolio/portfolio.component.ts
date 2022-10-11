@@ -72,7 +72,7 @@ export class PortfolioComponent implements OnInit {
   onWindowScroll(e: any) {
 
     this.value = e.target['scrollingElement'].scrollTop;
-    console.log(this.value);
+  
 
     if (1 < this.value && this.value < 300) {
       this.shadowHeaderActive = true;

@@ -66,7 +66,6 @@ export class SkillsComponent implements OnInit {
   cargarSkills(): void {
     this.skillsService.lista().subscribe(data => { this.miSkills = data; 
       this.CSkills=data.length;
-      console.log("cantidad En Skills:  " +this.CSkills);
       this.CSkillsEvent.emit(this.CSkills)})
   }
 
@@ -135,7 +134,6 @@ export class SkillsComponent implements OnInit {
 
 
   dropSkills(event: CdkDragDrop<any>) {
-    console.log(event);
     moveItemInArray(this.miSkills, event.previousIndex, event.currentIndex);
   }
 

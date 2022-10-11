@@ -67,7 +67,6 @@ export class ProyectosComponent implements OnInit {
   cargarProyecto(): void {
     this.proyectoService.lista().subscribe(data => { this.miProyecto = data;
       this.CProyecto=data.length;
-      console.log("cantidad En Proyecto:  " +this.CProyecto);
       this.CProyectoEvent.emit(this.CProyecto)
     })
   }

@@ -66,7 +66,6 @@ export class ExperienciaComponent implements OnInit {
   cargarExperiencia(): void {
     this.experienciaService.lista().subscribe(data => { this.miExperiencia = data;
       this.CExperiencia=data.length;
-      console.log("cantidad En Expereincia:  " +this.CExperiencia);
       this.CExperienciaEvent.emit(this.CExperiencia)
     })
   }
@@ -113,7 +112,6 @@ export class ExperienciaComponent implements OnInit {
 
 
   dropExperiencia(event: CdkDragDrop<any>) {
-    console.log(event);
     moveItemInArray(this.miExperiencia, event.previousIndex, event.currentIndex);
   }
 

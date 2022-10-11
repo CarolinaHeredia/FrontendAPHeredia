@@ -73,7 +73,6 @@ export class EducacionComponent implements OnInit {
     this.educacionService.lista().subscribe(data => {
       this.miEducacion = data;
       this.CEducacion=data.length;
-      console.log("cantidad En Educacion:  " +this.CEducacion);
       this.CEducacionEvent.emit(this.CEducacion)
     })
 
