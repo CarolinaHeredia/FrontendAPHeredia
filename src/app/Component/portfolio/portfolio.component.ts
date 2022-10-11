@@ -34,11 +34,11 @@ export class PortfolioComponent implements OnInit {
   CProyecto: number = 1;
   CSkills: number = 1;
 
-  LAboutme = 50;   //dimensiones notebbok  titulo 90 + espacios 400 + 500 dimensiones de cada modelo
-  LEducacion = 90+400 +371 * this.CEducacion;
-  LExperiencia = 90+400+500 * this.CExperiencia;
-  LProyecto = 90+400+500 * this.CProyecto;
-  LSkills =90+400+600 * this.CSkills;
+  LAboutme = 50;   //dimensiones notebbok  titulo 90 + espacios 400 + 800 dimensiones de cada modelo
+  LEducacion =500 +371 * this.CEducacion;
+  LExperiencia = 500+800 * this.CExperiencia;
+  LProyecto = 500+800 * this.CProyecto;
+  LSkills =500 +800 * this.CSkills;
 
 
   ngOnInit(): void {
@@ -46,8 +46,8 @@ export class PortfolioComponent implements OnInit {
 
     if (this.isLogged) {  //dimension en notebook
       this.LAboutme = this.LAboutme;
-      this.LEducacion = this.CEducacion +600;
-      this.LExperiencia=this.CExperiencia +900;
+      this.LEducacion = this.CEducacion +800;
+      this.LExperiencia=this.CExperiencia +1000;
       this.LProyecto =this.CProyecto +1200;
       this.LSkills =this.CSkills+1200;
     }
@@ -95,7 +95,7 @@ export class PortfolioComponent implements OnInit {
       this.shadowProyectoActive = true;
       this.shadowSkillsActive = false;
     }
-    else if (((1900 + this.LProyecto) < this.value) && (this.value < (2500 + this.LSkills))) { //Skills
+    else if (((1900 + this.LProyecto) < this.value) && (this.value < (2600 + this.LSkills))) { //Skills
       this.shadowProyectoActive = false;
       this.shadowSkillsActive = true;
     }

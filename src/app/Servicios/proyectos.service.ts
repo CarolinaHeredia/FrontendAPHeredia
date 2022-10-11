@@ -12,9 +12,10 @@ export class ProyectosService {
   constructor(private httpClient:HttpClient) { 
   }
 
- url:String='https://backendapheredia.herokuapp.com/proyecto/'; 
+//url = environment.urlBackendProyecto;
+url:String='https://backendapheredia.herokuapp.com/proyecto/'; 
 
- //url = environment.urlBackendProyecto;
+
 
   public lista():Observable<Proyecto[]>{
     return this.httpClient.get<Proyecto[]>(this.url + 'lista');

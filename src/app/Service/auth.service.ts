@@ -12,7 +12,7 @@ import { NuevoUsuario } from '../Modelos/nuevo-usuario';
 export class AuthService {
   
  
- //authURL=environment.urlBackendAuth;
+ //authURL=environment.urlBackendAuth; prueba local
  authURL:String='https://backendapheredia.herokuapp.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
